@@ -1,6 +1,25 @@
-@extends('layouts.app')
+@extends('layouts.security')
+
+
+
+
+
+@section('title')
+reset-password
+@endsection
+
+
+
+
+
+
+
+
+
+
 
 @section('content')
+<br><br><br><br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -43,5 +62,5 @@
             </div>
         </div>
     </div>
-</div>
+</div><br><br><br><br>
 @endsection

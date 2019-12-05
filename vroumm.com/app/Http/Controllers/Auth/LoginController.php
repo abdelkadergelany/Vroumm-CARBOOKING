@@ -9,6 +9,12 @@ use App\SocialProvider;
 use App\User;
 use App\UserInfo;
 use Illuminate\Support\Facades\Auth;
+use Mail;
+use App\Mail\carBooking;
+use App\Notifications\SMSNotification;
+use Illuminate\Notifications\Notifiable;
+
+
 
 
 
@@ -50,8 +56,22 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider($provider)
-    {
+     public function redirectToProvider($provider)
+     {
+
+
+        /*to send email
+        $data = array( "title" => "Welcome message from Vroumm","message" => "Hello Michele we are happy to welocme you on our system" );
+        Mail::to('michelendam@gmail.com')->send(new carBooking($data));
+
+        dd('stop');
+
+        */
+        /*to send sms*/
+      // $user = new User();
+      // $user->phone_number= '+85516393555';   
+      // $user->notify(new SMSNotification());
+        /*end to send sms */
 
         return Socialite::driver($provider)->redirect();
     }
@@ -63,38 +83,45 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {  // dd("aly");
-        $userProvided = Socialite::driver($provider)->user();
-        $socialUser = SocialProvider::where('socialId',$userProvided->getId())->first();
-           $user = null; 
+    $userProvided = Socialite::driver($provider)->user();
+    $socialUser = SocialProvider::where('socialId',$userProvided->getId())->first();
+    $user = null; 
         //check if we have logged provider
 
-            if(!$socialUser)
-        {
+    if(!$socialUser)
+    {
             //create a new user and provider
-            $user = User::firstOrCreate(
-                ['email' => $userProvided->getEmail()],
-                ['name' => $userProvided->getName()]
-            );
-            SocialProvider::create(
-                ['socialId' => $userProvided->getId(), 'provider' => $provider,'userId' => $user->id]
-            );
+        $dated = now();
+            //dd($dated);
+        $user = User::firstOrCreate(
+            ['email' => $userProvided->getEmail()],
+            ['name' => $userProvided->getName()],
 
-            UserInfo::create(
-                ['profilepict' => $userProvided->getAvatar(), 'userId' => $user->id]
-            );
-        }
-        
-        
-            $user = User::where('email',$userProvided->getEmail())->first();
-          
-            Auth::login($user);
-            return redirect('/home');
-        
-             
+        );
+        SocialProvider::create(
+            ['socialId' => $userProvided->getId(), 'provider' => $provider,'userId' => $user->id]
+        );
 
-        
-                
+        $userVerification = User::find($user->id);
+        $userVerification->email_verified_at = $dated;
+        $userVerification->save();
+
+        UserInfo::create(
+            ['profilepict' => $userProvided->getAvatar(), 'userId' => $user->id]
+        );
     }
 
-   
+
+    $user = User::where('email',$userProvided->getEmail())->first();
+
+    Auth::login($user);
+    return redirect('/home');
+
+
+
+
+
+}
+
+
 }

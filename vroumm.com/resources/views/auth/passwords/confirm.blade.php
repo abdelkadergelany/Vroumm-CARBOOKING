@@ -1,5 +1,26 @@
 @extends('layouts.app')
 
+
+
+
+
+@section('featured-image')
+@component('components.featured-image-component')
+
+@slot('current_page')
+{{ __('Reset password') }}
+
+@endslot
+
+@slot('current_page_bread_crumb')
+{{ __('Reset password') }}
+@endslot
+
+@endcomponent
+
+@endsection
+
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

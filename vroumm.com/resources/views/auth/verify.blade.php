@@ -1,11 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.security')
+
+
+
+@section('title')
+verification
+@endsection
+
 
 @section('content')
+<br><br><br><br><br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                <div class="card-header"><h5 class="text-center text-danger">{{ __('we perform Email Address verification for security purposes') }}</h5></div>
 
                 <div class="card-body">
                     @if (session('resent'))
@@ -25,4 +33,11 @@
         </div>
     </div>
 </div>
+<br><br><br><br>
+
+
+
+
+
+
 @endsection

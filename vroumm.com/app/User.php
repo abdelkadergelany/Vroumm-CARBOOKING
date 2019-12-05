@@ -1,12 +1,15 @@
 <?php
 
 namespace App;
-
+use App\car;
+use App\ride;
+use App\booking;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\Passwords\CanResetPassword;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -16,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','email_verified_at',
     ];
 
     /**
@@ -36,4 +39,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function ride(){
+   return $this->hasMany(ride::class);
+}
+
+public function booking(){
+   return $this->hasMany(booking::class);
+}
+
+
+public function car(){
+   return $this->hasMany(car::class);
+}
+
+
+
+
+
 }

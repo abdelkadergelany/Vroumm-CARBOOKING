@@ -41,5 +41,10 @@ return [
     'client_secret' => 'NDZP5jkOSyLwWKuFIZjwm3ED',
     'redirect' => 'http://localhost:8000/login/google/callback',
 ],
+'nexmo' => [
+    'key' => '8fb001b7',
+    'secret' => 'tIykefKfD4kDuE5D',
+    'sms_from' => 'vroumm',
+],
 
 ];

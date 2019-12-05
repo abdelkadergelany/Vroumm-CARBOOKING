@@ -1,0 +1,56 @@
+.text-on-img{
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*Counter*/
+
+.counter
+{
+    background-color: #17a2b8;
+    text-align: center;
+}
+.employees,.customer,.design,.order
+{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.counter-count
+{
+    font-size: 18px;
+    background-color: #17a2b8;
+    border-radius: 50%;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    line-height: 92px;
+    width: 92px;
+    height: 92px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: inline-block;
+}
+
+.employee-p,.customer-p,.order-p,.design-p
+{
+    font-size: 18px;
+    color: #000000;
+    line-height: 10px;
+}
+
+
+/*End Counter*/
+
+.index-reasons{
+margin-left: 40%;
+
+
+}
+
+.drop-item-auth:hover{
+    background-color: #1cc3b2;
+}
