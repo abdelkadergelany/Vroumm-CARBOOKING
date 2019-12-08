@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class carBooking extends Mailable
+class confirmationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,7 +32,7 @@ class carBooking extends Mailable
      */
     public function build()
     {
-        return $this->view('layouts.bookingRequestMailTemplate');
+        return $this->view('layouts.confirmationRequestMailTemplate');
                     
     }
 }

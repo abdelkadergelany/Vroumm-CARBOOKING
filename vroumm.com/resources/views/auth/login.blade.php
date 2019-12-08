@@ -53,7 +53,7 @@ vroumm-Login
 
 
 
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" required autofocus autocomplete="email"  name="email" placeholder="Email"> 
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"   required autofocus autocomplete="email"  name="email" placeholder="Email"> 
                      <label for="email"> {{ __('Email address') }}</label> 
 
 

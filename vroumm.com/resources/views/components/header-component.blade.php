@@ -50,7 +50,7 @@
                                  <div class="dropdown-menu">
                                         <br><br><br><br>
                                      <a style="color: black!important;" class=" drop-item-auth   
-                                          dropdown-item " href="#"><i class="fa-2x fa fa-home"
+                                          dropdown-item " href="{{ route('profile') }}"><i class="fa-2x fa fa-home"
                                            aria-hidden="true"></i>  {{ __('My Account') }}
                                      </a>
 
@@ -109,13 +109,13 @@
                             <div class="classynav">
                                 <ul id="nav">
                                     <li class="active"><a href="{{ url('/') }}">{{ __('Home') }}</a></li>
-                                    <li><a href="./room.html">{{ __('Find a ride') }} </a></li>
-                                    <li><a href="./room.html">{{ __('Offer a ride') }}</a></li>
+                                    <li><a href="{{ route('find-ride') }}">{{ __('Find a ride') }} </a></li>
+                                    <li><a href="{{ route('offer-ride') }}">{{ __('Offer a ride') }}</a></li>
                                     
                               
                                     <li><a href="{{route('about')}}">{{ __('About Us') }}</a></li>
 
-                                    <li><a href="./contact.html">{{ __('Contact') }}</a></li>
+                                    <li><a href="{{ route('contact') }}">{{ __('Contact') }}</a></li>
                                 </ul>
 
                              
@@ -124,12 +124,12 @@
                                 <div class="book-now-btn ml-3 ml-lg-5">
                                     
                                        @if(App::isLocale('fr'))
-                                        <a href="#"> ENGLISH  <i class="fa fa-long-arrow-right"  
+                                        <a href="{{route('language')}}?lang=en"> ENGLISH  <i class="fa fa-long-arrow-right"  
                                              aria-hidden="true"></i>
                                         </a>
                                         @endif
                                          @if(App::isLocale('en'))
-                                        <a href="#"> FRENCH  <i class="fa fa-long-arrow-right"  
+                                        <a href="{{route('language')}}?lang=fr"> FRENCH  <i class="fa fa-long-arrow-right"  
                                              aria-hidden="true"></i>
                                         </a>
                                         @endif

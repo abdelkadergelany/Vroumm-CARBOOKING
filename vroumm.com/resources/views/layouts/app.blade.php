@@ -11,10 +11,11 @@
     
     <title> @yield('title')</title>
 
-    @yield('morefiles')
+    
     <!-- All required CSS files -->
     @component('components.css-linked-component')
     @endcomponent
+    @yield('morefiles')
 
 </head>
 <body>
@@ -41,5 +42,6 @@
     @endcomponent
     @component('components.js-linked-component')
     @endcomponent
+    @yield('morescript')
 </body>
 </html>
