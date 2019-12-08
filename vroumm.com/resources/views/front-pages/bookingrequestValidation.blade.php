@@ -116,7 +116,7 @@ transition: box-shadow 0.3s ease-in;">
 
 
  <div class="form-group col-md-6">
-    <form action="{{route('bookrideconfirmationCallback')}}" method="post">
+    <form action="{{route('bookrideconfirmationCallback')}}" method="post">@csrf
 
 
        <input type="hidden" name="action"   value="confirm" >
@@ -129,9 +129,9 @@ transition: box-shadow 0.3s ease-in;">
 </div>
 
 <div class="form-group col-md-6">
-    <form action="{{route('bookrideconfirmationCallback')}}" method="post">
-        
-      <input type="hidden" name="action"   value="Cancel" >
+    <form action="{{route('bookrideconfirmationCallback')}}" method="post">@csrf
+
+      <input type="hidden" name="action"   value="cancel" >
       <input type="hidden" name="bookingId"   value="{{$bookingdetail->id}}" >
 
       <input type="hidden" name="rideId"   value="{{$details->id}}" >

@@ -10,6 +10,7 @@ use App\booking;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Mail;
+use App\Mail\confirmationMail;
 use App\Mail\carBooking;
 use App\Notifications\SMSNotification;
 use Illuminate\Notifications\Notifiable;
@@ -134,6 +135,9 @@ class BookrideController extends Controller
         if($request->isMethod('post')){
 
 
+    
+          if($request->input('action')=='confirm'){
+
           $ride = ride::find($request->input('rideId'));
           $booking = booking::find($request->input('bookingId'));
           //increase the number of people already booked for the given ride
@@ -143,6 +147,9 @@ class BookrideController extends Controller
 
           //get driver name
            $driverName = User::find( $ride->userId);
+
+           //get driver personnal infos
+           $personalInfo = UserInfo::where('userId',$ride->userId)->first();
           
             //get passenger name
            $passenger = User::find( $booking->userId);
@@ -150,17 +157,19 @@ class BookrideController extends Controller
           $booking->isConfirmed =1;
 
 
-      $data = array( "From" => $ride->From,"To" => $ride->To,"name"=>$passenger->name,"rideDetails"=> $ride,"driverName"=> $driverName->name);
+      $data = array( "From" => $ride->From,"To" => $ride->To,"name"=>$passenger->name,"rideDetails"=> $ride,"driverName"=> $driverName->name,
+        "personalInfo"=>$personalInfo);
 
-            Mail::to($passenger->->email)->send(new carBooking($data));
+            Mail::to($passenger->email)->send(new confirmationMail($data));
+            dd("success");
 
 
 
-
+         }
 
         }
 
-
+        
 
 
 

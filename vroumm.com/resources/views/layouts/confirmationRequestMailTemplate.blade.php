@@ -156,7 +156,7 @@
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 <div align="center" class="img-container center autowidth" style="padding-right: 0px;padding-left: 0px;">
-<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://example.com" tabindex="-1" target="_blank"> <img align="center" alt="Image" border="0" class="center autowidth" src="images/IMG-20191124-WA0021.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 600px; display: block;" title="Image" width="600"/></a>
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://localhost:8000/" tabindex="-1" target="_blank"> <img align="center" alt="Image" border="0" class="center autowidth" src="https://i.ibb.co/6B4j37z/IMG-20191124-WA0021.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 600px; display: block;" title="Image" width="600"/></a>
 <!--[if mso]></td></tr></table><![endif]-->
 </div>
 <!--[if (!mso)&(!IE)]><!-->
@@ -224,7 +224,7 @@
 </tbody>
 </table>
 <div align="center" class="img-container center autowidth" style="padding-right: 0px;padding-left: 0px;">
-<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Image" border="0" class="center autowidth" src="images/marketing-template_bottom-article.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 600px; display: block;" title="Image" width="600"/>
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><!-- <img align="center" alt="Image" border="0" class="center autowidth" src="images/marketing-template_bottom-article.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 600px; display: block;" title="Image" width="600"/> -->
 <!--[if mso]></td></tr></table><![endif]-->
 </div>
 <!--[if (!mso)&(!IE)]><!-->
@@ -257,7 +257,10 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 35px; padding-left: 35px; padding-top: 35px; padding-bottom: 35px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:1.5;padding-top:35px;padding-right:35px;padding-bottom:35px;padding-left:35px;">
 <div style="font-size: 12px; line-height: 1.5; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555; mso-line-height-alt: 18px;">
-<p style="font-size: 20px; line-height: 1.5; word-break: break-word; text-align: justify; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; mso-line-height-alt: 30px; margin: 0;"><span style="font-size: 20px;">Hello {{$data['name']}} {{ __('Your request for ride') }}  {{$data['From']}} <b>-></b> {{$data['To']}} {{ __('was confirmed') }}.<br> <b>Vous payez une fois arriver a destination au chauffeur.</b><br> <br>ci dessous les details du trajet: </span></p>
+<p style="font-size: 20px; line-height: 1.5; word-break: break-word; text-align: justify; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; mso-line-height-alt: 30px; margin: 0;"><span style="font-size: 18px;">Hello {{$data['name']}} {{ __('Your request for ride')
+ }}  {{$data['From']}} <b>-></b> {{$data['To']}} {{ __('has been confirmed') }}.{{ __('Contact the driver for more informations')
+ }}<br> <b>
+ 	{{ __('You pay at destination to the driver')}}.</b><br> <br>{{ __('below are the details of the journey')}}: </span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -271,41 +274,41 @@
   margin-bottom: 15px;
   border-collapse: collapse;
   border-style: all;
-  font-size: 20px
+  font-size: 16px
   
 
   ">
 	<tr style="border-bottom: 1px dashed green">
 		<td >
-			From
+			{{ __('From') }}
 		</td>
 			<td>
-			 Bafoussam
+			 {{$data['From']}} 
 		</td>
 	</tr>
 	<tr style="border-bottom: 1px dashed green">
 		<td>
-			To
+			{{ __('To') }}
 		</td>
 			<td>
-			 Yaounde
+			 {{$data['To']}} 
 		</td>
 	</tr>
 	<tr style="border-bottom: 1px dashed green">
 		<td>
-			pickepoint
+			{{ __('Pick Point') }}
 		</td>
 			<td>
-			emmana
+			{{$data['rideDetails']->PickPoint}} 
 		</td>
 	</tr>
 
 	<tr style="border-bottom: 1px dashed green">
 		<td>
-			dropepoint
+			{{ __('Drop Point') }}
 		</td>
 			<td>
-			deido
+			{{$data['rideDetails']->DropPoint}} 
 		</td>
 	</tr>
 	<tr style="border-bottom: 1px dashed green">
@@ -313,63 +316,75 @@
 			Date
 		</td>
 			<td>
-			 28 december  2019 
+			  {{ \Carbon\Carbon::parse($data['rideDetails']->DepartureDate)->format('j F, Y') }}
 		</td>
 	</tr>
 	<tr style="border-bottom: 1px dashed green">
 		<td>
-			Time
+			{{ __('Time') }}
 		</td>
 			<td>
-			  8h30
+			  {{$data['rideDetails']->DepartureTime}}
 		</td>
 	</tr>
 	<tr style="border-bottom: 1px dashed green">
 		<td>
-			Driver
+			{{ __('Driver') }}
 		</td>
 			<td>
-			abdelkader
+			 {{$data['driverName']}}
 		</td>
 	</tr>
 		<tr style="border-bottom: 1px dashed green">
 		<td>
-			phone
+			{{ __('Phone') }}
 		</td>
 			<td>
-			678681547
-		</td>
-	</tr>
-	<tr style="border-bottom: 1px dashed green">
-		<td>
-			whatsapp
-		</td>
-			<td>
-			6789569415
+			{{$data['personalInfo']->phone1}}
 		</td>
 	</tr>
 
+   @if($data['personalInfo']->phone2!=null)
+	<tr style="border-bottom: 1px dashed green">
+		<td>
+			Whatsapp
+		</td>
+			<td>
+			 {{$data['personalInfo']->phone2}}
+		</td>
+	</tr>
+	@endif
+
+
+
 	<tr style="border-bottom: 1px dashed green">
 		<td rowspan="2" >
-			Car
+			{{ __('Car') }}
 		</td>
 			<td>
           <table>
 			<tr>
-				<td>Model: Cami toyota</td>
+				<td>{{ __('Model') }}:  {{$data['rideDetails']->CarModel}}</td>
 			</tr>
 			<tr>
-				<td>color: Black</td>
+				<td>{{ __('Color') }}: {{$data['rideDetails']->CarColor}}</td>
 			</tr>
+			<tr >
+		<td >
+			{{ __('Price') }} : <b>{{$data['rideDetails']->price}} FCFA</b>
+		</td>
+		
+	</tr>
 			</table>
 		</td>
 	</tr>
+	
 
 
 
 </table>
 <table>
-	<tr><th style="color: blue;">merci de faire confiance a Vroumm.</th></tr>
+	<tr><th style="color: blue;">{{ __('Thank you for trusting Us') }}</th></tr>
 </table>
 
 </div>

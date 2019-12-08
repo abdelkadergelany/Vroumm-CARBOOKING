@@ -149,7 +149,17 @@
     "Confirm":"Confirmer",
     "Booking confirmation":"Confirmation de réservation",
     "Your request for ride":"Votre demande de réservation pour le trajet",
-    "was confirmed":"a été confirmé"
+    "has been confirmed":"a été confirmé",
+    "You pay at destination to the driver":"Vous payez à destination au chauffeur",
+    "below are the details of the journey":"ci dessous les details du trajet",
+    "From":"Depart",
+    "To":"Destination",
+    "Time":"Heure",
+    "Car":"Voiture",
+    "Model":"Modele",
+    "Thank you for trusting Us": "merci de nous faire confiance",
+    "Contact the driver for more informations":"Contactez le chauffeur pour plus d'informations"
+
 
 
 
