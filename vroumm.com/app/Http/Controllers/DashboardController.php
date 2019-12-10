@@ -8,6 +8,9 @@ use App\ride;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\booking;
+use Image;
+use Flashy;
 
 class DashboardController extends Controller
 {
@@ -51,6 +54,7 @@ class DashboardController extends Controller
 
     public function profile(Request $request)
     {  
+
         return view('front-pages.profile');
     }
 
@@ -60,7 +64,56 @@ class DashboardController extends Controller
 
     public function photo(Request $request)
     {  
-        return view('front-pages.upload-pict');
+        if($request->isMethod('get')){
+
+             return view('front-pages.upload-pict');
+        }
+
+
+        if($request->isMethod('post')){
+            
+
+   $validatedData = $request->validate([
+         
+        'image' => ['required', 'image','mimes:jpeg,png,jpg,gif,svg', 'max:1000141'],           
+    ]);
+
+   $image = $request->file('image');
+
+        $input['imagename'] = date("d-m-Y").Auth::user()->name.rand().'.'.$image->extension();
+
+     
+
+        $destinationPath = public_path('/thumbnail');
+
+        $img = Image::make($image->path());
+
+        $img->resize(150, 150, function ($constraint) {
+
+            $constraint->aspectRatio();
+
+        })->save($destinationPath.'/'.$input['imagename']);
+
+   
+
+        $destinationPath = public_path('/profile');
+
+        $image->move($destinationPath, $input['imagename']);
+
+
+           $user = UserInfo::where('userId',Auth::user()->id)->first();
+
+           $user->profilepict = $input['imagename'];
+           $user->save();
+
+
+           Flashy::primary(trans('image uploaded'), '');
+
+
+             return view('front-pages.upload-pict');
+        }
+
+       
     }
 
 
@@ -79,7 +132,11 @@ class DashboardController extends Controller
     public function offered_rides(Request $request)
     {  
 
-         $rides = ride::where('userId',Auth::user()->id)->paginate(6);
+
+         $rides = User::find(Auth::user()->id)->ride('userId')->orderBy("created_at","DESC")->paginate(6);
+        
+
+        
 
         return view('front-pages.offered-rides')->with('rides',$rides)->with('count',$rides->count());
     }
@@ -87,8 +144,15 @@ class DashboardController extends Controller
 
 
     public function booked_rides(Request $request)
-    {   
-       return view('front-pages.booked-rides');
+    {    
+
+         $bookedrides = booking::where('userId',Auth::user()->id)->orderBy("created_at","DESC")->paginate(6);
+              // foreach ($bookedrides as $bookedrides) {
+              //     # code...
+              //   dd(serialize($bookedrides->created_at));
+              // }
+      
+       return view('front-pages.booked-rides')->with('bookedrides',$bookedrides)->with('count',$bookedrides->count());
 
    }
 

@@ -26,6 +26,9 @@ text-success
    
                
                      <h3 class="text-capitalize">{{ __('Change your profile picture') }}</h3>
+                     @if ($errors->any())
+                      @error('image') <p> {{__('Image Not accepted.please change the picture and try again') }} </p> @enderror
+                     @endif
                     <div class="form-row">
                         <div class="col-xl">
 
@@ -33,13 +36,13 @@ text-success
                          <div class="container">
                             <div class="col-md-12">
 
-                                <form accept="#">
+                                <form method="POST" action="{{ route('photo') }}" enctype="multipart/form-data" >@csrf
                                 <div class="form-group">
-                                    <label> {{ __('Upload Image') }}</label>
+                                    <label for="imgInp" > {{ __('Upload Image') }}</label>
                                     <div class="input-group">
                                         <span class="input-group-btn">
                                             <span class="btn btn-success btn-file">
-                                                {{ __('Browse') }}… <input type="file" accept="image/png, image/jpeg, image/gif" id="imgInp">
+                                                {{ __('Browse') }}… <input required type="file" name="image" accept="image/png, image/jpeg, image/gif" id="imgInp">
                                             </span>
                                         </span>
                                         <input id='urlname'type="text" class="form-control" readonly>
@@ -48,7 +51,7 @@ text-success
                                     <img id='img-upload'/>
                                 </div>
                                 <div class="input-group">
-                                   <input type="submit" name="" value="submit" class="btn-info form-control"> 
+                                   <input type="submit"  value="{{ __('Upload') }}" class="btn-info form-control"> 
                                 </div>
                                
                                 </form>
@@ -73,6 +76,7 @@ text-success
 
 
 <script src="{{asset('js/uploadpict.js')}}"></script>
+@include('flashy::message')
 
 
 @endsection

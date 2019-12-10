@@ -10,6 +10,13 @@ class booking extends Model
     protected $guarded =[];
 
      public function user(){
-   return $this->belongsTo(User::class);
+   return $this->belongsTo(User::class,'userId');
+
 }
+
+ public function ride(){
+   return $this->belongsTo(ride::class,'RideId');
+}
+
+
 }

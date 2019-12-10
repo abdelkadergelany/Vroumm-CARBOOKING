@@ -14,6 +14,7 @@ use App\Mail\confirmationMail;
 use App\Mail\carBooking;
 use App\Notifications\SMSNotification;
 use Illuminate\Notifications\Notifiable;
+use Flashy;
 
 
 class BookrideController extends Controller
@@ -122,6 +123,12 @@ class BookrideController extends Controller
 
          $detail = ride::find($request->input('RideId'));
          $bookingdetail = booking::find($request->input('bookingId'));
+         //return client to home page if the ride was already confirmed
+         if($bookingdetail->isConfirmed==1)
+         {
+            return redirect('home');
+
+         }
          $passenger = User::find($bookingdetail->userId);
 
          return view('front-pages.bookingrequestValidation')->with('details',$detail)
@@ -135,11 +142,28 @@ class BookrideController extends Controller
         if($request->isMethod('post')){
 
 
-    
+          
+        if($request->input('action')=='cancel'){
+
+
+
+
+        }
+
+
+
           if($request->input('action')=='confirm'){
 
           $ride = ride::find($request->input('rideId'));
           $booking = booking::find($request->input('bookingId'));
+
+
+          //return user to home page if the ride is already confirmed
+           if($booking->isConfirmed==1)
+         {
+            return redirect('home');
+
+         }
           //increase the number of people already booked for the given ride
           $temp = $ride->passenger;
           $ride->passenger =$temp + $booking->PlaceBooked;
@@ -154,7 +178,9 @@ class BookrideController extends Controller
             //get passenger name
            $passenger = User::find( $booking->userId);
            //set booking confirmation for the passsenger
-          $booking->isConfirmed =1;
+          $booking->isConfirmed = 1;
+          $booking->save();
+
 
 
       $data = array( "From" => $ride->From,"To" => $ride->To,"name"=>$passenger->name,"rideDetails"=> $ride,"driverName"=> $driverName->name,

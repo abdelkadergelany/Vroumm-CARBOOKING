@@ -68,7 +68,7 @@
     "Register And Offer a Ride":"Enregistrez-vous et proposez un trajet",
     "Rgister here":"Enregistrez-vous ici",
     "Leaving From":"Depart",
-    "select a city":"choisissez une ville",
+    "selec a ctity":"choisissez une ville",
     "Going To":"Destination",
     "Check":"rechercher",
     "Testimonials":"Témoignages",
@@ -89,8 +89,8 @@
     "Send Message":"Envoyer le message",
     "Ride Informations":"Details du trajet",
     "Itinerary":"Itinéraire",
-    "Pick Point":"lieu d'embarquement",
-    "Drop Point":"lieu de débarquement",
+    "Pick Point":"Embarquement",
+    "Drop Point":"Débarquement",
     "Departure date":"Date du départ",
     "Car's Model":"Modèle de voiture",
     "Color":"Couleur",
@@ -158,7 +158,19 @@
     "Car":"Voiture",
     "Model":"Modele",
     "Thank you for trusting Us": "merci de nous faire confiance",
-    "Contact the driver for more informations":"Contactez le chauffeur pour plus d'informations"
+    "Contact the driver for more informations":"Contactez le chauffeur pour plus d'informations",
+    "Departure":"Départ",
+    "sorry this car is full":"desolé voiture pleine",
+    "Filter by cities":"Filtrer par villes",
+    "Filter by Date":"Filtrer par date",
+    "Apply Filter":"Appliquer le filtre",
+    "No ride available for now":"Pas de trajet disponible pour le moment",
+    "Use filter for more rides":"Utilisez le filtre pour plus de trajets",
+    "Upload":"Valider",
+    "Sorry this page does not exist":"Desolé page introuvable",
+    "Image Not accepted.please change the picture and try again":"Image invalide. Changez la photo et réessayer",
+    "image uploaded":"photo mise à jour"
+
 
 
 

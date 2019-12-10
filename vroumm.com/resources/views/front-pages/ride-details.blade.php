@@ -37,7 +37,7 @@ transition: box-shadow 0.3s ease-in;">
   <div class="col-md-4">
     <span> {{ __('Driver') }} </span><br>
     <figure>
-      <img src="http://danblackonleadership.info/wp-content/uploads/2015/10/driving-man-760x506.jpg" class="rounded-circle" alt="Cinque Terre" width="70" height="70">
+      <img src="thumbnail/{{getProfilePict(Auth::user()->id)}}" class="rounded-circle" alt="Cinque Terre" width="150" height="150">
       <figcaption>{{Auth::user()->name}}</figcaption>
       <!-- <figcaption>Sexe: Male</figcaption> -->
     </figure>
@@ -102,32 +102,33 @@ transition: box-shadow 0.3s ease-in;">
     <span class="text-danger">Special Notice : </span><br>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste. Lorem Ipsum available.
   </div> -->
 
+   @if(!isset($viewtype))
+  <form class="col-md-12"  action="{{ route('bookride') }}" method="get">
 
-<form class="col-md-12"  action="{{ route('bookride') }}" method="get">
-
-  <input type="hidden" value="{{$details->id}}" name="rideId">
+    <input type="hidden" value="{{$details->id}}" name="rideId">
     @csrf
-  <div class="row p-3" style="background-color: #999999">
-   @if($details->NumberOfPlaces != $details->passenger )
-   <label class="col-md-2">combien de place?</label>
-    <div class="form-group col-md-4">
+    <div class="row p-3" style="background-color: #999999">
+     @if($details->NumberOfPlaces != $details->passenger )
+     <label class="col-md-2">combien de place?</label>
+     <div class="form-group col-md-4">
 
-     <input placeholder="{{__('number of places to book') }}" type="Number" min="1"   max="{{$details->NumberOfPlaces-$details->passenger}}"  class="form-control" name="passenger" required>
-   </div>
-   <div class="form-group col-md-4">
-    <input  type="submit"  class="form-control btn-info"  value="{{__('Book Now') }}">
+       <input placeholder="{{__('number of places to book') }}" type="Number" min="1"   max="{{$details->NumberOfPlaces-$details->passenger}}"  class="form-control" name="passenger" required>
+     </div>
+     <div class="form-group col-md-4">
+      <input  type="submit"  class="form-control btn-info"  value="{{__('Book Now') }}">
 
-    <!--  <button class="btn btn-lg btn-info" type="submit" value="">Book Now</button> -->
-  </div>
+      <!--  <button class="btn btn-lg btn-info" type="submit" value="">Book Now</button> -->
+    </div>
 
-  @else
+    @else
 
-  <div class="form-group col-md-12">
+    <div class="form-group col-md-12">
      <h3 class="text-center text-white">{{__('sorry this car is full') }}</h3>
    </div>
 
-  @endif
-</form>
+   @endif
+ </form>
+ @endif
 </div>
 
 

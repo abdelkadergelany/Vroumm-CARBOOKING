@@ -50,7 +50,7 @@
                                  <div class="dropdown-menu">
                                         <br><br><br><br>
                                      <a style="color: black!important;" class=" drop-item-auth   
-                                          dropdown-item " href="{{ route('profile') }}"><i class="fa-2x fa fa-home"
+                                          dropdown-item " href="{{ route('profiler') }}"><i class="fa-2x fa fa-home"
                                            aria-hidden="true"></i>  {{ __('My Account') }}
                                      </a>
 

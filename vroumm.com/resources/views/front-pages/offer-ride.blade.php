@@ -2,7 +2,7 @@
 
 
 @section('title')
-vroumm-contact
+offer-ride
 @endsection
 
 @section('morefiles')
@@ -44,44 +44,44 @@ vroumm-contact
 
 
 
-  
-
-
-      
-
-    <div class="tab ">
+    
 
 
     
 
+    <div class="tab ">
+
+
+      
+
 
       @if ($errors->any())
-    <div class="alert alert-danger">
-      <p>{{__('please review the form and correct the following errors') }}:</p>
+      <div class="alert alert-danger">
+        <p>{{__('please review the form and correct the following errors') }}:</p>
         <ul> 
           @error('departure') <p> {{__('Departure Date is required') }} </p> @enderror
-           @error('hour') <p> {{__('Departure time is required') }} </p> @enderror
-            @error('lname') <p> {{__('Surname') }} incorrect</p> @enderror
-            @error('fname') <p>{{ __('Given names') }} incorrect</p> @enderror
-             @error('phone') <p>{{ __('whatsapp phone number is invalid') }} </p> @enderror
-            @error('phone') <p>{{ __('phone number is invalid') }} </p> @enderror
-            @error('city') <p>{{__('City') }} incorrect</p> @enderror
-            @error('quater') <p>{{__('Quater') }} incorrect</p> @enderror
-            @error('idcard') <p>{{ __('Id Card Number') }} incorrect</p> @enderror
-            @error('idlicence') <p>{{ __('Driving Licence') }} incorrect</p> @enderror
-            @error('dob') <p>{{ __(' Date Of Birth') }} incorrect</p> @enderror
-            @error('picktpoint') <p>{{ __('Pick Point') }} incorrect</p> @enderror
-            @error('dropoint') <p>{{ __('Drop Point') }} incorrect</p> @enderror
-              @error('carmodel') <p>{{ __("Car's Model") }} incorrect</p> @enderror
-            @error('color') <p>{{__("Car's Color") }} incorrect</p> @enderror
-            @error('kg') <p>{{__('Kg Per person') }} incorrect</p> @enderror
-            @error('price') <p>{{__('Price') }} incorrect</p> @enderror
-            @error('sites') <p>{{__('Number of sites') }} incorrect</p> @enderror
-            @error('To') <p>{{ __('Going To') }} incorrect.&nbsp;{{ __('destination can not be same with departure city') }}</p> @enderror
-           
+          @error('hour') <p> {{__('Departure time is required') }} </p> @enderror
+          @error('lname') <p> {{__('Surname') }} incorrect</p> @enderror
+          @error('fname') <p>{{ __('Given names') }} incorrect</p> @enderror
+          @error('phone') <p>{{ __('whatsapp phone number is invalid') }} </p> @enderror
+          @error('phone') <p>{{ __('phone number is invalid') }} </p> @enderror
+          @error('city') <p>{{__('City') }} incorrect</p> @enderror
+          @error('quater') <p>{{__('Quater') }} incorrect</p> @enderror
+          @error('idcard') <p>{{ __('Id Card Number') }} incorrect</p> @enderror
+          @error('idlicence') <p>{{ __('Driving Licence') }} incorrect</p> @enderror
+          @error('dob') <p>{{ __(' Date Of Birth') }} incorrect</p> @enderror
+          @error('picktpoint') <p>{{ __('Pick Point') }} incorrect</p> @enderror
+          @error('dropoint') <p>{{ __('Drop Point') }} incorrect</p> @enderror
+          @error('carmodel') <p>{{ __("Car's Model") }} incorrect</p> @enderror
+          @error('color') <p>{{__("Car's Color") }} incorrect</p> @enderror
+          @error('kg') <p>{{__('Kg Per person') }} incorrect</p> @enderror
+          @error('price') <p>{{__('Price') }} incorrect</p> @enderror
+          @error('sites') <p>{{__('Number of sites') }} incorrect</p> @enderror
+          @error('To') <p>{{ __('Going To') }} incorrect.&nbsp;{{ __('destination can not be same with departure city') }}</p> @enderror
+          
         </ul>
-    </div>
-@endif
+      </div>
+      @endif
       <h6 class="text-center text-white text-uppercase pt-2"><b> {{ __('Itinerary') }}<b></h6>
 
 
@@ -92,9 +92,9 @@ vroumm-contact
             <select   id="first-disabled" class="inputer selectpicker form-control " data-hide-disabled="false"
             data-live-search="true" name="From" >
 
-            <option >Bamenda</option>
-            <option>Douala</option>
-            <option>Bafoussam</option>
+            @foreach($city=getCities() as $cit)
+            <option >{{$cit->name}}</option>
+            @endforeach
 
           </select>
         </div>
@@ -105,9 +105,9 @@ vroumm-contact
 
          <select  id="second-disabled" class="inputer selectpicker form-control" data-hide-disabled="false"
          data-live-search="true" name="To" >
-         <option >Bamenda</option>
-         <option>Douala</option>
-         <option>Bafoussam</option>
+         @foreach($city=getCities() as $cit)
+         <option >{{$cit->name}}</option>
+         @endforeach
 
        </select>
 
@@ -124,7 +124,7 @@ vroumm-contact
         <label for="Pick-Point"><b>{{ __('Pick Point') }}</b></label>
         <input  type="text" class="inputer form-control " id="Pick-Point" placeholder="eg: devant Total Ngousso" name="picktpoint">
       </div>
-     
+      
     </div>
 
 
@@ -133,29 +133,29 @@ vroumm-contact
 
     <div class="form-group col-md-6 " >
 
-    
+      
       <label for="Drop-Point"><b>{{ __('Drop Point') }}</b></label>
       <input  type="text" class=" inputer form-control" id="Drop-Point" placeholder="Drop Point" name="dropoint">
-     
- 
-  
+      
+      
+      
 
+    </div>
   </div>
-</div>
 
 
 
 
 
-<div class="form-row">
-  <div class="form-group col-md-6">
-    <label for="Departure-Date">{{ __('Departure date') }}</label>
-    <input placeholder="yyyy-mm-dd" type="text" class=" inputer form-control datepicker-here" data-language='en' data-date-format=" yyyy-mm-dd" id="Departure-Date" name="departure"  >
-   
-  </div>
-  <div class="form-group col-md-6">
-    <label for="hour">Heure</label>
-    <input placeholder="H:M:S" type="time" class=" inputer form-control "  id="hour" name="hour"  >
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="Departure-Date">{{ __('Departure date') }}</label>
+      <input placeholder="yyyy-mm-dd" type="text" class=" inputer form-control datepicker-here" data-language='en' data-date-format=" yyyy-mm-dd" id="Departure-Date" name="departure"  >
+      
+    </div>
+    <div class="form-group col-md-6">
+      <label for="hour">Heure</label>
+      <input placeholder="H:M:S" type="time" class=" inputer form-control "  id="hour" name="hour"  >
    <!--  <label for="hour">Heure</label>
     <select   id="hour" class=" inputer form-control" name="hour">
      <option value="00">00 H</option>
@@ -180,17 +180,17 @@ vroumm-contact
   <div class="form-group col-md-6">
     <label for="Car-Model">{{ __("Car's Model") }}</label>
     <input type="text" class=" inputer form-control "  id="Car-Model" placeholder="eg:Toyota Land Cruiser" name="carmodel">
-   
+    
   </div>
   <div class="form-group col-md-3">
     <label for="color">{{__('Color') }}</label>
     <input type="text" class=" inputer form-control " placeholder="eg:black"  id="color" name="color">
-  
+    
   </div>
   <div class="form-group col-md-3">
     <label for="kg">{{__('Kg Per person') }} </label>
     <input type="number" min="0" class=" inputer form-control " name="kg"  id="kg" placeholder="how many kg per peron ">
-       
+    
   </div>
 </div>
 <div class="form-row">
@@ -198,13 +198,13 @@ vroumm-contact
     <label for="price">
       <b> {{__('Price') }}</b>
     </label><input type="number" name="price" placeholder="eg: 3500" class=" inputer form-control "  id="price">
-     
+    
   </div>
   <div class="form-group col-md-6"> 
     <label for="place">
       <b> {{__('Number of sites') }}</b>
     </label><input type="number" min="1" placeholder="nombre de places disponibles" name="sites" class=" inputer form-control "  id="place">
-  
+    
   </div>
 </div>
 
@@ -242,7 +242,7 @@ vroumm-contact
     <div class="form-holder">
 
       <input type="text" id="lname"  placeholder="given name" name="lname"  class="inputer form-control">
-  
+      
     </div>
   </div>
 
@@ -272,7 +272,7 @@ vroumm-contact
  <div class="form-holder">
 
   <input id="quater" name="quater" placeholder="quater"  type="text" class="form-control " >
-   
+  
 </div>
 </div>
 </div>
@@ -287,7 +287,7 @@ vroumm-contact
     <div class="form-holder">
 
       <input id="idnum"  name="idcard" placeholder="id card number" type="text" class="form-control">
-    
+      
     </div>
   </div>
   <div class="form-group col-md-6">
@@ -297,7 +297,7 @@ vroumm-contact
     <div class="form-holder">
 
       <input id="driving" name="idlicence" placeholder="driving licence number" type="text" class="form-control " >
-    
+      
     </div>
   </div>
 </div>
@@ -332,15 +332,15 @@ vroumm-contact
 
  <div class="col-md-4">
   <label for="phone">
-     {{__('Whatssap number') }}
-   </label>
-   <div class="form-group">
+   {{__('Whatssap number') }}
+ </label>
+ <div class="form-group">
 
-    <input placeholder="eg: 698261547" pattern="[0-9]{9}" id="phone" name="phone2"   type="tel" class="form-control " >
+  <input placeholder="eg: 698261547" pattern="[0-9]{9}" id="phone" name="phone2"   type="tel" class="form-control " >
 
-  </div>
 </div>
- <div class="col-md-4">
+</div>
+<div class="col-md-4">
   <label for="sexe">
     {{__(' Gender') }}
   </label>
@@ -361,7 +361,7 @@ vroumm-contact
 
 
    <input type="text" name="dob" class=" inputer form-control datepicker-here" placeholder="yyyy-mm-dd" data-language='en' data-date-format="yyyy-mm-dd" id="DOB">
-  
+   
 
 
  </div>
@@ -437,10 +437,10 @@ paralax.jpg
 <script src="{{asset('js/datepicker.js')}}"></script>
 <script src="{{asset('js/datepicker.en.js')}}"></script>
 <script >
-$('#Departure-Date').datepicker({
+  $('#Departure-Date').datepicker({
     language: 'en',
     minDate: new Date() // Now can select only dates, which goes after today
-})
+  })
 </script>
 
 @endsection

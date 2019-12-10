@@ -42,7 +42,7 @@ text-success
 
 
    <div class="row">
-     <a href="{{ route('ride-details') }}?id={{$ride->id}}" class=" view-detail-btn"><button class=" btn btn-sm btn-info">{{ __('View Details') }}</button>  </a>&nbsp;&nbsp;
+     <a href="{{ route('ride-details') }}?id={{$ride->id}}&v=951159951159" class=" view-detail-btn"><button class=" btn btn-sm btn-info">{{ __('View Details') }}</button>  </a>&nbsp;&nbsp;
 
        @if(($ride->DepartureDate > now()) &&($ride->passenger==0) )
      <a href="#" class=" view-detail-btn"><button class=" btn btn-sm btn-danger">{{ __('cancel') }}</button>  </a>&nbsp;&nbsp;
@@ -58,51 +58,12 @@ text-success
 @endforeach
 
 
-<!-- 
-<div class="single-room-area booking-container d-flex align-items-center mb-50 wow fadeInUp p-3" data-wow-delay="500ms" >
-
- <div class="container  text-center">
-
-   <h5>25 Dec 2019 08h:30</h5>
-   <span class="">Douala</span> <span><sub> <i class="p-2 fa fa-long-arrow-right fa-3x" aria-hidden="true"></i> </sub></span> <span class="">Yaounde</span>
-
-
-   <div class="row">
-     <a href="#" class=" view-detail-btn"><button class=" btn btn-sm btn-info">View Details</button>  </a>
-   </div>
-
- </div>
-</div>
-
-
-
-
-<div class="single-room-area booking-container d-flex align-items-center mb-50 wow fadeInUp p-3" data-wow-delay="500ms" >
-
- <div class="container  text-center">
-
-   <h5>25 Dec 2019 08h:30</h5>
-   <span class="">Douala</span> <span><sub> <i class="p-2 fa fa-long-arrow-right fa-3x" aria-hidden="true"></i> </sub></span> <span class="">Yaounde</span>
-
-
-   <div class="row">
-     <a href="#" class=" view-detail-btn"><button class=" btn btn-sm btn-info">View Details</button>  </a>
-   </div>
-
- </div>
-</div>
- -->
 
 
 
 
 <nav class="roberto-pagination wow fadeInUp mb-100" data-wow-delay="1000ms">
-<!--   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next <i class="fa fa-angle-right"></i></a></li>
-  </ul> -->
+
   {{ $rides->links() }}
 </nav>
 

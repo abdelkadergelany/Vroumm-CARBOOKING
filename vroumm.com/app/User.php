@@ -42,16 +42,16 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
     public function ride(){
-   return $this->hasMany(ride::class);
+   return $this->hasMany(ride::class,'userId');
 }
 
 public function booking(){
-   return $this->hasMany(booking::class);
+   return $this->hasMany(booking::class,'userId');
 }
 
 
 public function car(){
-   return $this->hasMany(car::class);
+   return $this->hasMany(car::class,'userId');
 }
 
 

@@ -12,6 +12,8 @@
     <title> @yield('title')</title>
 
     
+
+
     <!-- All required CSS files -->
     @component('components.css-linked-component')
     @endcomponent
@@ -34,14 +36,24 @@
 
 
      @component('components.partenar-component')
-
     @endcomponent
+
+
+
+
+
 
     @component('components.footer-component')
-
     @endcomponent
+
+
     @component('components.js-linked-component')
     @endcomponent
+
     @yield('morescript')
+
+
+
+
 </body>
 </html>

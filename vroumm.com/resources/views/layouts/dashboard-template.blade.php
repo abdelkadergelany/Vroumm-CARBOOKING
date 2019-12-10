@@ -52,15 +52,15 @@
             <nav id="sidebar">
                 <div class="sidebar-header">
                    <figure>
-                    <img src="http://danblackonleadership.info/wp-content/uploads/2015/10/driving-man-760x506.jpg" class="rounded-circle" alt="" width="100" height="100">
-                    <figcaption class="font-weight-bolder">Michele</figcaption>
+                    <img src="thumbnail/{{getProfilePict(Auth::user()->id)}}" class="rounded-circle" alt="" width="150" height="150">
+                    <figcaption class="font-weight-bolder ">{{Auth::user()->name}}</figcaption>
                 </figure>
             </div>
 
             <ul class="list-unstyled components">
 
              <li class="@yield('profile')">
-                <a   href="{{ route('profile') }}">Profile</a>
+                <a   href="{{ route('profiler') }}">Profile</a>
             </li>
             
             <li class="@yield('photo')">

@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-	
+	       //flashy()->success('You have been logged out.', 'http://your-awesome-link.com');
+	      // Flashy::primary('Welcome Aboard!', 'http://your-awesome-link.com');
+
     return view('home');
 });
 
@@ -32,7 +34,7 @@ Route::get('/contact', function () {
 
 
 Route::get('/ride-details', 'HomeController@ride_details')->name('ride-details');
-Route::get('/find-ride', 'HomeController@find_ride')->name('find-ride');
+Route::match(['get','post'],'/find-ride', 'HomeController@find_ride')->name('find-ride');
 
 
 
@@ -41,10 +43,10 @@ Route::match(['get','post'],'/bookrideconfirmationCallback', 'BookrideController
 
 
 
-
+Route::get('/profiler', 'DashboardController@profile')->name('profiler');
 Route::match(['get','post'],'/offer-ride', 'DashboardController@offer_ride')->name('offer-ride');
-Route::get('/profile', 'DashboardController@profile')->name('profile');
-Route::get('/photo', 'DashboardController@photo')->name('photo');
+
+Route::match(['get','post'],'/photo', 'DashboardController@photo')->name('photo');
 Route::get('/mycar', 'DashboardController@mycar')->name('mycar');
 Route::get('/offered-rides', 'DashboardController@offered_rides')->name('offered-rides');
 Route::get('/booked-rides', 'DashboardController@booked_rides')->name('booked-rides');

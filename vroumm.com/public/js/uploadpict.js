@@ -1,5 +1,6 @@
 $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
+    //faker
+            $('#sidebarCollapsew').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
         });

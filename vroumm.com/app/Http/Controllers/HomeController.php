@@ -7,6 +7,7 @@ use App;
 use App\ride;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Flashy;
 
 
 
@@ -29,16 +30,17 @@ class HomeController extends Controller
      */
     public function index()
     {  
+
         return view('home');
     }
 
 
     public function ChangeLanguage(Request $request)
     {   
-       // dd(App::getLocale($lang));
+      
            $data=$request->input();
             App::setLocale($data['lang']);
-          // dd(App::getLocale($lang));
+          
          return view('home');
          //return back();
  
@@ -47,10 +49,81 @@ class HomeController extends Controller
 
 
       public function find_ride(Request $request)
-    {   
-      
-                return view('front-pages.find-ride');
+    {       
 
+
+           if($request->isMethod('get')){
+
+            if ($request->input('From')!=null && $request->input('To')!=null)
+
+            {
+                 $ride = ride::where('From','like',$request->input('From'))
+                              ->where('To','like',$request->input('To'))
+                              ->orderBy("created_at","DESC")
+                              ->paginate(8);
+
+                              return view('front-pages.find-ride')->with('rides',$ride)
+                              ->with('From',$request->input('From'))
+                              ->with('To',$request->input('To'));
+
+            }
+
+
+
+                elseif ($request->input('From')==null && $request->input('To')==null)
+
+            {
+                 $ride = ride::where('From','!=',null)
+                              ->orderBy("created_at","DESC")
+                              ->paginate(8);
+
+                              return view('front-pages.find-ride')->with('rides',$ride);
+                         
+            }
+
+
+            else
+            {
+                return back();
+            }
+          
+
+
+           }
+
+
+
+           if($request->isMethod('post')){
+
+
+ 
+                       if($request->input('departureDate')!=null)
+                       { 
+
+                       $ride = ride::where('From','like',$request->input('From'))
+                              ->where('To','like',$request->input('To'))
+                              ->where('DepartureDate','=',$request->input('departureDate'))
+                              ->orderBy("created_at","DESC")
+                              ->paginate(8);
+                               return view('front-pages.find-ride')->with('rides',$ride);
+                  }
+
+
+
+                  else{   // dd('aly');
+
+                       $ride = ride::where('From','like',$request->input('From'))
+                              ->where('To','like',$request->input('To'))
+                              ->orderBy("created_at","DESC")
+                              ->paginate(8);
+                               return view('front-pages.find-ride')->with('rides',$ride);
+
+                  }
+
+
+           }
+      
+                
          
  
     }
@@ -61,7 +134,15 @@ class HomeController extends Controller
              
              $detail = ride::find($request->input('id'));
 
-                return view('front-pages.ride-details')->with('details',$detail);
+              //if the request to view detail is coming from a driver do not display the bookable form
+             //951159951159 is the value that shows the ride detail request is from the driver
+                if($request->input('v')=='951159951159')
+                return view('front-pages.ride-details')->with('details',$detail)->with("viewtype",'unbookable');
+
+                elseif ($request->input('v')=='123321654')
+                     return view('front-pages.ride-details')->with('details',$detail);
+                 else
+                 return back();
 
          
  
