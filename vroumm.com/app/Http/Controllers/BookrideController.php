@@ -40,7 +40,13 @@ class BookrideController extends Controller
       {  
       	if($request->isMethod('get')){
          //dd($request->input('passenger'));
-      		return view('front-pages.bookingride')->with("passenger",$request->input('passenger'))->with("rideId",$request->input('rideId'));
+
+          $userInf = UserInfo::firstOrCreate(['userId'=>Auth::user()->id]);
+
+      		return view('front-pages.bookingride')
+          ->with("passenger",$request->input('passenger'))
+          ->with("rideId",$request->input('rideId'))
+          ->with('userInfos',$userInf);
 
       	}
 
@@ -63,7 +69,7 @@ class BookrideController extends Controller
       		//dd($request->input());
 
       		$data = $request->input();
-      		$user = UserInfo::where('userId',Auth::user()->id)->first();
+      		$user = UserInfo::firstOrCreate(['userId'=>Auth::user()->id]);
       		$user->FisrtName = $data['fname'];
       		$user->LastName = $validatedData['lname'];
       		$user->sexe = $data['gender'];

@@ -52,15 +52,7 @@ vroumm-contact
     <div class="tab ">
 
 
-      @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-          @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div>
-      @endif
+     
 
 
       @if ($errors->any())
@@ -95,9 +87,11 @@ vroumm-contact
            </label>
            <div class="form-holder">
 
-           <!--  <input required type="text" id="fname" placeholder="fname"  name="fname"   class=" form-control"> -->
-           <input required type="text" id="fname"  placeholder="first name" name="fname"  class=" form-control">
-
+           @if($userInfos->FisrtName!=null)
+           <input value="{{ $userInfos->FisrtName }}" required type="text" id="fname"  placeholder="first name" name="fname"  class=" form-control">
+             @else
+               <input required type="text" id="fname"  placeholder="first name" name="fname"  class=" form-control">
+             @endif
           </div>
         </div>
 
@@ -106,9 +100,11 @@ vroumm-contact
             {{ __('Given names') }}
           </label>
           <div class="form-holder">
-
-            <input required type="text" id="lname"  placeholder="given name" name="lname"  class=" form-control">
-
+             @if($userInfos->LastName!=null)
+            <input value="{{ $userInfos->LastName }}" required type="text" id="lname"  placeholder="given name" name="lname"  class=" form-control">
+            @else
+             <input required type="text" id="lname"  placeholder="given name" name="lname"  class=" form-control">
+             @endif
           </div>
         </div>
 
@@ -127,7 +123,12 @@ vroumm-contact
          </label>
          <div class="form-holder">
 
-          <input required id="city" placeholder="city" name="city"  type="text" class="form-control">
+
+            @if($userInfos->city!=null)
+    <input required id="city" value="{{ $userInfos->city }}" placeholder="city" name="city"  type="text" class="form-control">
+    @else
+    <input required id="city" placeholder="city" name="city"  type="text" class="form-control">
+    @endif
 
         </div>
       </div>
@@ -137,7 +138,11 @@ vroumm-contact
        </label>
        <div class="form-holder">
 
-        <input  required id="quater" name="quater" placeholder="quater"  type="text" class="form-control " >
+        @if($userInfos->quater!=null) 
+   <input required value="{{ $userInfos->quater }}" id="quater" name="quater" placeholder="quater"  type="text" class="form-control " >
+   @else
+   <input required id="quater" name="quater" placeholder="quater"  type="text" class="form-control " >
+   @endif
 
       </div>
     </div>
@@ -152,8 +157,12 @@ vroumm-contact
       </label>
       <div class="form-holder">
 
-        <input required id="idnum"  name="idcard" placeholder="id card number" type="text" class="form-control">
-
+        
+      @if($userInfos->IdCard!=null)
+     <input required value="{{ $userInfos->IdCard }}" id="idnum"  name="idcard" placeholder="id card number" type="text" class="form-control">
+     @else
+     <input required id="idnum"  name="idcard" placeholder="id card number" type="text" class="form-control">
+     @endif
       </div>
     </div>
     <div class="form-group col-md-6">
@@ -162,7 +171,7 @@ vroumm-contact
       </label>
       <div class="form-holder">
 
-        <input required id="driving" name="idlicence"  disabled type="text" class="form-control " >
+        <input  id="driving" name="idlicence"  disabled type="text" class="form-control " >
 
       </div>
     </div>
@@ -177,7 +186,7 @@ vroumm-contact
       </label>
       <div class="form-holder">
 
-        <input required  id="email" placeholder="email" type="email" class="form-control">
+        <input disabled   id="email" placeholder="email" type="email" class="form-control">
       </div>
     </div>
     <div class="form-group col-md-6">
@@ -186,7 +195,14 @@ vroumm-contact
      </label>
      <div class="form-holder">
 
-      <input required placeholder="eg: 698261547" pattern="[0-9]{9}" id="phone" name="phone"   type="tel" class="form-control " >
+ @if($userInfos->phone1!=null)
+    <input required value="{{ $userInfos->phone1 }}" placeholder="eg: 698261547" pattern="[0-9]{9}" id="phone" name="phone"   type="tel" class="form-control " >
+    @else
+    <input required placeholder="eg: 698261547" pattern="[0-9]{9}" id="phone" name="phone"   type="tel" class="form-control " >
+    @endif
+
+
+
 
     </div>
   </div>
@@ -203,8 +219,26 @@ vroumm-contact
   </label>
   <div class="form-group">
     <select required id="sexe" class="form-control" name="gender"  >
-      <option value="Male" selected>{{ __(' Male') }}</option>
-      <option value="Female"  >{{__(' Female') }}</option>
+       @if($userInfos->sexe!=null)
+     @if($userInfos->sexe=='Male')
+
+     <option  selected>Male</option>
+     <option  >Female</option>
+     @endif
+
+     @if($userInfos->sexe=='Female')
+     <option selected >Female</option>
+     <option  >Male</option>
+     @endif
+
+     @endif
+
+
+     @if($userInfos->sexe==null)
+     <option value="">Chose your gender</option>
+     <option >Male</option>
+     <option  >Female</option>
+     @endif
     </select>
 
   </div>
@@ -215,9 +249,13 @@ vroumm-contact
   </label>
   <div class="form-group">
 
+    @if($userInfos->DOB!=null)
 
+   <input required value="{{ $userInfos->DOB }}" type="text" name="dob" class=" inputer form-control datepicker-here" placeholder="yyyy-mm-dd" data-language='en' data-date-format="yyyy-mm-dd" id="DOB">
+   @else
+   <input required type="text" name="dob" class=" inputer form-control datepicker-here" placeholder="yyyy-mm-dd" data-language='en' data-date-format="yyyy-mm-dd" id="DOB">
 
-   <input required type="text" name="dob" class="  form-control datepicker-here" placeholder="yyyy-mm-dd" data-language='en' data-date-format="yyyy-mm-dd" id="DOB">
+   @endif
 
 
 
@@ -230,9 +268,12 @@ vroumm-contact
   </label>
   <div class="form-group">
 
+@if($userInfos->PlaceOfBirth!=null)
 
-
-   <input required type="text" name="pob" class="  form-control " placeholder="place of birth"  id="pob">
+   <input required value="{{ $userInfos->PlaceOfBirth }}" type="text" name="pob" class="  form-control " placeholder="place of birth"  id="pob">
+   @else
+    <input required type="text" name="pob" class="  form-control " placeholder="place of birth"  id="pob">
+@endif
 
 
 

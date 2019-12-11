@@ -15,49 +15,14 @@ text-success
 
   <!-- Page Content  -->
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 
 
 
 
 
 
-  
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        <p>{{__('please review the form and correct the following errors') }}:</p>
-        <ul> 
-          @error('departure') <p> {{__('Departure Date is required') }} </p> @enderror
-          @error('hour') <p> {{__('Departure time is required') }} </p> @enderror
-          @error('lname') <p> {{__('Given names') }} incorrect</p> @enderror
-          @error('fname') <p>{{ __('Surname') }} incorrect</p> @enderror
-          @error('phone2') <p>{{ __('whatsapp phone number is invalid') }} </p> @enderror
-          @error('phone') <p>{{ __('phone number is invalid') }} </p> @enderror
-          @error('city') <p>{{__('City') }} incorrect</p> @enderror
-          @error('quater') <p>{{__('Quater') }} incorrect</p> @enderror
-          @error('idcard') <p>{{ __('Id Card Number') }} incorrect</p> @enderror
-          @error('idlicence') <p>{{ __('Driving Licence') }} incorrect</p> @enderror
-          @error('dob') <p>{{ __(' Date Of Birth') }} incorrect</p> @enderror
-          @error('picktpoint') <p>{{ __('Pick Point') }} incorrect</p> @enderror
-          @error('dropoint') <p>{{ __('Drop Point') }} incorrect</p> @enderror
-          @error('carmodel') <p>{{ __("Car's Model") }} incorrect</p> @enderror
-          @error('color') <p>{{__("Car's Color") }} incorrect</p> @enderror
-          @error('kg') <p>{{__('Kg Per person') }} incorrect</p> @enderror
-          @error('price') <p>{{__('Price') }} incorrect</p> @enderror
-          @error('sites') <p>{{__('Number of sites') }} incorrect</p> @enderror
-          @error('To') <p>{{ __('Going To') }} incorrect.&nbsp;{{ __('destination can not be same with departure city') }}</p> @enderror
-          
-        </ul>
-      </div>
-      @endif
+
+
                
                     <form action="{{ route('profiler') }}" method="POST">@csrf
                         <h3>{{__('Personal Infos') }}</h3>
@@ -73,8 +38,9 @@ text-success
                                      <input name="fname" id="fname"   type="text"  class=" form-control">
                                     @endif
 
-                                    <span class="text-danger">@error('lname') <p> {{__('Surname') }} incorrect</p> @enderror</span>
+                                    
                                 </div>
+                                <span class="text-danger"> @error('fname') {{ __('Surname') }} incorrect @enderror</p> </span>
                             </div>
 
                             <div class="col-xl">
@@ -88,6 +54,7 @@ text-success
                                       <input name="lname" id="lname"  type="text" class="form-control">
                                        @endif
                                 </div>
+                                <span class="text-danger">  @error('lname')  {{__('Given names') }} incorrect @enderror </span>
                             </div>
 
 
@@ -110,6 +77,7 @@ text-success
                                      <input name="city" id="city"   type="text" class="form-control">
                                     @endif
                                 </div>
+                                 <span class="text-danger">  @error('city') {{__('City') }} incorrect @enderror </span>
                             </div>
                             <div class="col-xl">
                                 <label for="quater">
@@ -122,6 +90,7 @@ text-success
                                      <input name="quater"   type="text" class="form-control " id="quater">
                                     @endif
                                 </div>
+                                <span class="text-danger">   @error('quater') {{__('Quater') }} incorrect @enderror </span>
                             </div>
                         </div><br>
 
@@ -139,6 +108,8 @@ text-success
                                       <input name="idcard" id="idnum"   type="text" class="form-control">
                                      @endif
                                 </div>
+
+                                 <span class="text-danger">    @error('idcard') {{ __('Id Card Number') }} incorrect @enderror </span>
                             </div>
                             <div class="col-xl">
                                 <label for="driving">
@@ -152,6 +123,7 @@ text-success
                                       <input name="idlicence"  type="text" class="form-control "  id="driving">
                                       @endif
                                 </div>
+                                 <span class="text-danger">   @error('idlicence') {{ __('Driving Licence') }} incorrect @enderror </span>
                             </div>
                         </div><br>
 
@@ -179,6 +151,7 @@ text-success
                                        <input name="phone"   type="tel" class="form-control "  id="phone">
                                       @endif
                                 </div>
+                                <span class="text-danger">   @error('phone') {{ __('phone number is invalid') }}  @enderror </span>
                             </div>
                         </div><br>
 
@@ -248,6 +221,7 @@ text-success
                                  @endif
 
                             </div>
+                             <span class="text-danger">    @error('phone2'){{ __('whatsapp phone number is invalid') }}  @enderror </span>
                         </div>
 
 

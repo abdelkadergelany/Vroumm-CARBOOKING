@@ -47,7 +47,7 @@ Route::match(['get','post'],'/profiler', 'DashboardController@profile')->name('p
 Route::match(['get','post'],'/offer-ride', 'DashboardController@offer_ride')->name('offer-ride');
 
 Route::match(['get','post'],'/photo', 'DashboardController@photo')->name('photo');
-Route::get('/mycar', 'DashboardController@mycar')->name('mycar');
+Route::match(['get','post'],'/mycar', 'DashboardController@mycar')->name('mycar');
 Route::get('/offered-rides', 'DashboardController@offered_rides')->name('offered-rides');
 Route::get('/booked-rides', 'DashboardController@booked_rides')->name('booked-rides');
 

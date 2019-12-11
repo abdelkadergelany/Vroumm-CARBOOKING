@@ -52,7 +52,7 @@ offer-ride
     <div class="tab ">
 
 
-              
+      
 
 
       @if ($errors->any())
@@ -61,7 +61,7 @@ offer-ride
         <ul> 
           @error('departure') <p> {{__('Departure Date is required') }} </p> @enderror
           @error('hour') <p> {{__('Departure time is required') }} </p> @enderror
-           @error('lname') <p> {{__('Given names') }} incorrect</p> @enderror
+          @error('lname') <p> {{__('Given names') }} incorrect</p> @enderror
           @error('fname') <p>{{ __('Surname') }} incorrect</p> @enderror
           @error('phone2') <p>{{ __('whatsapp phone number is invalid') }} </p> @enderror
           @error('phone') <p>{{ __('phone number is invalid') }} </p> @enderror
@@ -156,42 +156,51 @@ offer-ride
     <div class="form-group col-md-6">
       <label for="hour">Heure</label>
       <input placeholder="H:M:S" type="time" class=" inputer form-control "  id="hour" name="hour"  >
- 
+      
+    </div>
   </div>
-</div>
 
 
-<div class="form-row">
-  <div class="form-group col-md-6">
-    <label for="Car-Model">{{ __("Car's Model") }}</label>
-    <input type="text" class=" inputer form-control "  id="Car-Model" placeholder="eg:Toyota Land Cruiser" name="carmodel">
-    
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="Car-Model">{{ __("Car's Model") }}</label>
+
+      @if($car->model != null)
+      <input type="text" class=" inputer form-control " value="{{$car->model}}"  id="Car-Model" placeholder="eg:Toyota Land Cruiser" name="carmodel">
+      @else
+      <input type="text" class=" inputer form-control "  id="Car-Model" placeholder="eg:Toyota Land Cruiser" name="carmodel">
+      @endif
+      
+    </div>
+    <div class="form-group col-md-3">
+      <label for="color">{{__('Color') }}</label>
+
+      @if($car->color != null)
+      <input type="text" value="{{$car->color}}" class=" inputer form-control " placeholder="eg:black"  id="color" name="color">
+      @else
+      <input type="text" class=" inputer form-control " placeholder="eg:black"  id="color" name="color">
+      @endif
+    </div>
+    <div class="form-group col-md-3">
+      <label for="kg">{{__('Kg Per person') }} </label>
+      <input type="number" min="0" class=" inputer form-control " name="kg"  id="kg" placeholder="how many kg per peron ">
+      
+    </div>
   </div>
-  <div class="form-group col-md-3">
-    <label for="color">{{__('Color') }}</label>
-    <input type="text" class=" inputer form-control " placeholder="eg:black"  id="color" name="color">
-    
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="price">
+        <b> {{__('Price') }}</b>
+      </label><input type="number" name="price" placeholder="eg: 3500" class=" inputer form-control "  id="price">
+      
+    </div>
+    <div class="form-group col-md-6"> 
+      <label for="place">
+        <b> {{__('Number of sites') }}</b>
+      </label><input type="number" min="1" placeholder="nombre de places disponibles" name="sites" class=" inputer form-control "  id="place">
+      
+    </div>
   </div>
-  <div class="form-group col-md-3">
-    <label for="kg">{{__('Kg Per person') }} </label>
-    <input type="number" min="0" class=" inputer form-control " name="kg"  id="kg" placeholder="how many kg per peron ">
-    
-  </div>
-</div>
-<div class="form-row">
-  <div class="form-group col-md-6">
-    <label for="price">
-      <b> {{__('Price') }}</b>
-    </label><input type="number" name="price" placeholder="eg: 3500" class=" inputer form-control "  id="price">
-    
-  </div>
-  <div class="form-group col-md-6"> 
-    <label for="place">
-      <b> {{__('Number of sites') }}</b>
-    </label><input type="number" min="1" placeholder="nombre de places disponibles" name="sites" class=" inputer form-control "  id="place">
-    
-  </div>
-</div>
 
 
 </div>
@@ -214,22 +223,27 @@ offer-ride
        {{__('Surname') }}
      </label>
      <div class="form-holder">
+       @if($userInfos->FisrtName!=null)
+       <input value="{{ $userInfos->FisrtName }}" type="text" id="fname" placeholder="fisrt name"  name="fname"   class="inputer form-control">
+       @else
+       <input type="text" id="fname" placeholder="fisrt name"  name="fname"   class="inputer form-control">
+       @endif
+     </div>
+   </div>
 
-      <input type="text" id="fname" placeholder="fisrt name"  name="fname"   class="inputer form-control">
-      
-    </div>
-  </div>
-
-  <div class="col-xl">
+   <div class="col-xl">
     <label for="lname">
       {{ __('Given names') }}
     </label>
     <div class="form-holder">
+     @if($userInfos->LastName!=null)
+     <input value="{{ $userInfos->LastName }}" type="text" id="lname"  placeholder="given name" name="lname"  class="inputer form-control">
+     @else
+     <input  type="text" id="lname"  placeholder="given name" name="lname"  class="inputer form-control">
 
-      <input type="text" id="lname"  placeholder="given name" name="lname"  class="inputer form-control">
-      
-    </div>
-  </div>
+     @endif
+   </div>
+ </div>
 
 
 
@@ -245,8 +259,11 @@ offer-ride
      {{__('City') }}
    </label>
    <div class="form-holder">
-
+    @if($userInfos->city!=null)
+    <input id="city" value="{{ $userInfos->city }}" placeholder="city" name="city"  type="text" class="form-control">
+    @else
     <input id="city" placeholder="city" name="city"  type="text" class="form-control">
+    @endif
     
   </div>
 </div>
@@ -255,10 +272,13 @@ offer-ride
    {{__('Quater') }}
  </label>
  <div class="form-holder">
-
-  <input id="quater" name="quater" placeholder="quater"  type="text" class="form-control " >
-  
-</div>
+   @if($userInfos->quater!=null) 
+   <input value="{{ $userInfos->quater }}" id="quater" name="quater" placeholder="quater"  type="text" class="form-control " >
+   @else
+   <input id="quater" name="quater" placeholder="quater"  type="text" class="form-control " >
+   @endif
+   
+ </div>
 </div>
 </div>
 
@@ -270,21 +290,26 @@ offer-ride
       {{ __('Id Card Number') }}
     </label>
     <div class="form-holder">
-
-      <input id="idnum"  name="idcard" placeholder="id card number" type="text" class="form-control">
-      
-    </div>
+     @if($userInfos->IdCard!=null)
+     <input value="{{ $userInfos->IdCard }}" id="idnum"  name="idcard" placeholder="id card number" type="text" class="form-control">
+     @else
+     <input id="idnum"  name="idcard" placeholder="id card number" type="text" class="form-control">
+     @endif
+   </div>
+ </div>
+ <div class="form-group col-md-6">
+  <label for="driving">
+    {{ __('Driving Licence') }}
+  </label>
+  <div class="form-holder">
+    @if($userInfos->DriverLicenceNumber!=null)
+    <input value="{{ $userInfos->DriverLicenceNumber }}" id="driving" name="idlicence" placeholder="driving licence number" type="text" class="form-control " >
+    @else
+    <input id="driving" name="idlicence" placeholder="driving licence number" type="text" class="form-control " >
+    @endif
+    
   </div>
-  <div class="form-group col-md-6">
-    <label for="driving">
-      {{ __('Driving Licence') }}
-    </label>
-    <div class="form-holder">
-
-      <input id="driving" name="idlicence" placeholder="driving licence number" type="text" class="form-control " >
-      
-    </div>
-  </div>
+</div>
 </div>
 
 
@@ -296,7 +321,7 @@ offer-ride
     </label>
     <div class="form-holder">
 
-      <input  id="email" value="gelany740@gmail.com" type="email" class="form-control">
+      <input disabled id="email" value="gelany740@gmail.com" type="email" class="form-control">
     </div>
   </div>
   <div class="form-group col-md-6">
@@ -304,9 +329,11 @@ offer-ride
      {{__('Phone') }}
    </label>
    <div class="form-holder">
-
+    @if($userInfos->phone1!=null)
+    <input value="{{ $userInfos->phone1 }}" placeholder="eg: 698261547" pattern="[0-9]{9}" id="phone" name="phone"   type="tel" class="form-control " >
+    @else
     <input placeholder="eg: 698261547" pattern="[0-9]{9}" id="phone" name="phone"   type="tel" class="form-control " >
-    
+    @endif
   </div>
 </div>
 </div>
@@ -320,9 +347,11 @@ offer-ride
    {{__('Whatssap number') }}
  </label>
  <div class="form-group">
-
+  @if($userInfos->phoene2!=null)
+  <input value="{{ $userInfos->phone2 }}" placeholder="eg: 698261547" pattern="[0-9]{9}" id="phone" name="phone2"   type="tel" class="form-control " >
+  @else
   <input placeholder="eg: 698261547" pattern="[0-9]{9}" id="phone" name="phone2"   type="tel" class="form-control " >
-
+  @endif
 </div>
 </div>
 <div class="col-md-4">
@@ -331,11 +360,29 @@ offer-ride
   </label>
   <div class="form-group">
     <select id="sexe" class="form-control" name="gender"  >
-      <option value="Male" selected>{{ __(' Male') }}</option>
-      <option value="Female"  >{{__(' Female') }}</option>
-    </select>
+     @if($userInfos->sexe!=null)
+     @if($userInfos->sexe=='Male')
 
-  </div>
+     <option  selected>Male</option>
+     <option  >Female</option>
+     @endif
+
+     @if($userInfos->sexe=='Female')
+     <option selected >Female</option>
+     <option  >Male</option>
+     @endif
+
+     @endif
+
+
+     @if($userInfos->sexe==null)
+     <option value="">Chose your gender</option>
+     <option >Male</option>
+     <option  >Female</option>
+     @endif
+   </select>
+
+ </div>
 </div>
 <div class="col-md-4">
   <label for="DOB">
@@ -343,9 +390,13 @@ offer-ride
   </label>
   <div class="form-group">
 
+   @if($userInfos->DOB!=null)
 
-
+   <input value="{{ $userInfos->DOB }}" type="text" name="dob" class=" inputer form-control datepicker-here" placeholder="yyyy-mm-dd" data-language='en' data-date-format="yyyy-mm-dd" id="DOB">
+   @else
    <input type="text" name="dob" class=" inputer form-control datepicker-here" placeholder="yyyy-mm-dd" data-language='en' data-date-format="yyyy-mm-dd" id="DOB">
+
+   @endif
    
 
 

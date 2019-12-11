@@ -18,6 +18,7 @@
     @component('components.css-linked-component')
     @endcomponent
     @yield('morefiles')
+  
 
 </head>
 <body>
