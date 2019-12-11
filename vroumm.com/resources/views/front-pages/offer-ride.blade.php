@@ -52,7 +52,7 @@ offer-ride
     <div class="tab ">
 
 
-      
+              
 
 
       @if ($errors->any())
@@ -61,9 +61,9 @@ offer-ride
         <ul> 
           @error('departure') <p> {{__('Departure Date is required') }} </p> @enderror
           @error('hour') <p> {{__('Departure time is required') }} </p> @enderror
-          @error('lname') <p> {{__('Surname') }} incorrect</p> @enderror
-          @error('fname') <p>{{ __('Given names') }} incorrect</p> @enderror
-          @error('phone') <p>{{ __('whatsapp phone number is invalid') }} </p> @enderror
+           @error('lname') <p> {{__('Given names') }} incorrect</p> @enderror
+          @error('fname') <p>{{ __('Surname') }} incorrect</p> @enderror
+          @error('phone2') <p>{{ __('whatsapp phone number is invalid') }} </p> @enderror
           @error('phone') <p>{{ __('phone number is invalid') }} </p> @enderror
           @error('city') <p>{{__('City') }} incorrect</p> @enderror
           @error('quater') <p>{{__('Quater') }} incorrect</p> @enderror
@@ -156,22 +156,7 @@ offer-ride
     <div class="form-group col-md-6">
       <label for="hour">Heure</label>
       <input placeholder="H:M:S" type="time" class=" inputer form-control "  id="hour" name="hour"  >
-   <!--  <label for="hour">Heure</label>
-    <select   id="hour" class=" inputer form-control" name="hour">
-     <option value="00">00 H</option>
-      @for($i=1;$i<=23;$i++)
-      <option value="{{$i}}">{{$i}} H</option>
-      @endfor
-    </select>
-  </div>
-  <div class="form-group col-md-3">
-    <label for="min">Min </label>
-    <select id="min" class=" inputer form-control" name="min">
-     <option value="00">00 Min</option>
-     @for($i=1;$i<=59;$i++)
-      <option value="{{$i}}">{{$i}} Min</option>
-      @endfor
-    </select> -->
+ 
   </div>
 </div>
 

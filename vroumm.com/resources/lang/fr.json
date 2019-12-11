@@ -136,12 +136,12 @@
     "Place Of Birth":"Lieu de naissance",
     "Whatssap number":"numéro Whatssap",
     "whatsapp phone number is invalid":"numéro whatsapp invalid",
-    "you have receive a booking request for your ride":"vous avez reçu une démande de reservation pour votre trajet",
+    "you have receive a booking request for your ride":"vous avez reçu une démande de réservation pour votre trajet",
     "click the button below to validate or cancel the request":"clicker le button ci-dessous pour valider ou rejetter la démande",
-    "Booking request":"Demande de reservation",
+    "Booking request":"Demande de réservation",
     "Click here":"Clickez ici",
     "Online Car Booking In Cameroon":"Réservation de voiture en ligne au Cameroun",
-    "Booking request validation":"Validation de la demande de reservation",
+    "Booking request validation":"Validation de la demande de réservation",
     "Passenger":"Passager",
     "Sites alredy booked":"Nombre de place déjà réservées",
     "Number of Sites booked":"Nombre de place réservées",
@@ -169,7 +169,13 @@
     "Upload":"Valider",
     "Sorry this page does not exist":"Desolé page introuvable",
     "Image Not accepted.please change the picture and try again":"Image invalide. Changez la photo et réessayer",
-    "image uploaded":"photo mise à jour"
+    "image uploaded":"photo mise à jour",
+    "you will receive an email if a passenger book in":"vous recevrez un email en cas de réservation",
+    "ride published successfully! you will receive an email once a passenger booked in":"Trajet publié avec succès! vous recevrez un e-mail en cas de reservation",
+    "reservation request sent to the driver, you will receive an email in case of confirmation":"démande de réservation envoyée, vous recevrez un email en cas de confirmation",
+    "Booked Rides":"Trajets réservés",
+    "Ride request canceled successfully":"démande de réservation annulée",
+    "informations updated":"informations mises à jour"
 
 
 

@@ -47,16 +47,17 @@ class BookrideController extends Controller
 
       	if($request->isMethod('post')){
 
+
       		$validatedData = $request->validate([
 
-      			'lname' => ['required', 'alpha', 'max:50'],
-      			'city' => ['required', 'alpha', 'max:50'],
-      			'quater' => ['required', 'alpha_num', 'max:100'],
-      			'idcard' => ['required', 'regex:/[0-9]{10}/', 'max:100'], 
-      			'phone' => ['required', 'starts_with:6', 'max:9'],       
+      			 'lname' => ['required','regex:/^[a-zA-Z\s]+$/', 'max:50','Min:2'],
+        'city' => ['required','regex:/^[a-zA-Z\s]+$/','Min:2', 'max:100'],
+        'quater' => ['required','regex:/^[a-zA-Z0-9\s]+$/', 'max:50'],
+        'idcard' => ['required','regex:/^[0-9]+$/', 'max:10','Min:10'],
+      			 'phone' => ['required','starts_with:6','regex:/[0-9]{9}/', 'max:9','Min:9'],     
       			'dob' =>['required'],
-      			// 'fname' =>['required', 'alpha', 'max:50'],
-      			'pob' => ['required', 'alpha_num', 'max:50'],
+      			'fname' =>['required', 'regex:/^[a-zA-Z\s]+$/', 'max:100'],
+      			'pob' => ['required', 'regex:/^[a-zA-Z\s]+$/', 'max:50'],
 
       		]);
       		//dd($request->input());
@@ -71,6 +72,7 @@ class BookrideController extends Controller
       		$user->DOB = $validatedData['dob'];
       		$user->IdCard = $validatedData['idcard'];
       		$user->phone1 = $validatedData['phone'];
+          $user->PlaceOfBirth = $validatedData['pob'];
       		$user->save();
 
 
@@ -99,7 +101,8 @@ class BookrideController extends Controller
           Mail::to($useremail->email)->send(new carBooking($data));
           dd("mess");
 
-      		//return redirect('booked-rides');
+      		
+          return redirect('booked-rides')->with("flashmessage",trans("reservation request sent to the driver, you will receive an email in case of confirmation"));
 
 
         }
@@ -145,7 +148,8 @@ class BookrideController extends Controller
           
         if($request->input('action')=='cancel'){
 
-
+         Flashy::primary(trans('Ride request canceled successfully'), '');
+         return redirect('offered-rides');
 
 
         }
@@ -159,7 +163,7 @@ class BookrideController extends Controller
 
 
           //return user to home page if the ride is already confirmed
-           if($booking->isConfirmed==1)
+           if($booking->isConfirmed!=0)
          {
             return redirect('home');
 

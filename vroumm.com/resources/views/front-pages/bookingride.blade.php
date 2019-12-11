@@ -69,8 +69,8 @@ vroumm-contact
         <ul> 
           
          
-          @error('lname') <p> {{__('Surname') }} incorrect</p> @enderror
-          @error('fname') <p>{{ __('Given names') }} incorrect</p> @enderror
+         @error('lname') <p> {{__('Given names') }} incorrect</p> @enderror
+          @error('fname') <p>{{ __('Surname') }} incorrect</p> @enderror
           @error('phone') <p>{{ __('phone number is invalid') }} </p> @enderror
           @error('city') <p>{{__('City') }} incorrect</p> @enderror
           @error('quater') <p>{{__('Quater') }} incorrect</p> @enderror

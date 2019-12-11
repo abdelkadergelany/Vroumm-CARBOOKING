@@ -43,7 +43,7 @@ Route::match(['get','post'],'/bookrideconfirmationCallback', 'BookrideController
 
 
 
-Route::get('/profiler', 'DashboardController@profile')->name('profiler');
+Route::match(['get','post'],'/profiler', 'DashboardController@profile')->name('profiler');
 Route::match(['get','post'],'/offer-ride', 'DashboardController@offer_ride')->name('offer-ride');
 
 Route::match(['get','post'],'/photo', 'DashboardController@photo')->name('photo');

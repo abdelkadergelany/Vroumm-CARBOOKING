@@ -13,6 +13,19 @@ text-success
 
 
 <!-- Page Content  -->
+<div class="row">
+  @if(Session::has('flashmessage'))
+
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>{!! Session('flashmessage')!!}</strong> 
+  </div> 
+
+  @endif
+
+</div>
 
 <div class="row">
   <div class="col-sm-6"></div>
@@ -22,7 +35,7 @@ text-success
 
     <div class="employees">
       <p class="counter-count">{{$count}} </p>
-      <p class="employee-p">{{ __('Offered Rides') }}</p>
+      <p class="employee-p">{{ __('Booked Rides') }}</p>
     </div>
 
 
@@ -37,7 +50,7 @@ text-success
  <div class="container  text-center">
 
    <h5> {{getDater($bookedride->RideId)}}  &nbsp;     {{getTimer($bookedride->RideId)}} </h5> </h5>
-   <span class="">{{getFrom($bookedride->RideId)}}</span> <span><sub> <i class="p-2 fa fa-long-arrow-right fa-3x" aria-hidden="true"></i> </sub></span> <span class="">{{getTo($bookedride->RideId)}}</span>
+   <span class="">{{getFrom($bookedride->RideId)}}</span> <span><sub> <i class="p-2 fa fa-long-arrow-right fa-2x" aria-hidden="true"></i> </sub></span> <span class="">{{getTo($bookedride->RideId)}}</span>
 
 
    <div class="row">
