@@ -105,7 +105,7 @@ class BookrideController extends Controller
 
 
           Mail::to($useremail->email)->send(new carBooking($data));
-          dd("mess");
+          
 
       		
           return redirect('booked-rides')->with("flashmessage",trans("reservation request sent to the driver, you will receive an email in case of confirmation"));

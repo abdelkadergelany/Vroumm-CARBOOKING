@@ -186,7 +186,7 @@ vroumm-contact
       </label>
       <div class="form-holder">
 
-        <input disabled   id="email" placeholder="email" type="email" class="form-control">
+        <input disabled value="{{Auth::user()->email}}"   id="email" placeholder="email" type="email" class="form-control">
       </div>
     </div>
     <div class="form-group col-md-6">

@@ -36,7 +36,7 @@ offer-ride
 
 <div class="container" >
 
-  
+
   <form id="regForm" action="{{ route('offer-ride') }}" method="POST">
     @csrf
 
@@ -52,7 +52,7 @@ offer-ride
     <div class="tab ">
 
 
-      
+
 
 
       @if ($errors->any())
@@ -133,7 +133,7 @@ offer-ride
 
     <div class="form-group col-md-6 " >
 
-      
+
       <label for="Drop-Point"><b>{{ __('Drop Point') }}</b></label>
       <input  type="text" class=" inputer form-control" id="Drop-Point" placeholder="Drop Point" name="dropoint">
       
@@ -156,7 +156,7 @@ offer-ride
     <div class="form-group col-md-6">
       <label for="hour">Heure</label>
       <input placeholder="H:M:S" type="time" class=" inputer form-control "  id="hour" name="hour"  >
-      
+
     </div>
   </div>
 
@@ -170,7 +170,7 @@ offer-ride
       @else
       <input type="text" class=" inputer form-control "  id="Car-Model" placeholder="eg:Toyota Land Cruiser" name="carmodel">
       @endif
-      
+
     </div>
     <div class="form-group col-md-3">
       <label for="color">{{__('Color') }}</label>
@@ -184,7 +184,7 @@ offer-ride
     <div class="form-group col-md-3">
       <label for="kg">{{__('Kg Per person') }} </label>
       <input type="number" min="0" class=" inputer form-control " name="kg"  id="kg" placeholder="how many kg per peron ">
-      
+
     </div>
   </div>
   <div class="form-row">
@@ -192,13 +192,13 @@ offer-ride
       <label for="price">
         <b> {{__('Price') }}</b>
       </label><input type="number" name="price" placeholder="eg: 3500" class=" inputer form-control "  id="price">
-      
+
     </div>
     <div class="form-group col-md-6"> 
       <label for="place">
         <b> {{__('Number of sites') }}</b>
       </label><input type="number" min="1" placeholder="nombre de places disponibles" name="sites" class=" inputer form-control "  id="place">
-      
+
     </div>
   </div>
 
@@ -277,7 +277,7 @@ offer-ride
    @else
    <input id="quater" name="quater" placeholder="quater"  type="text" class="form-control " >
    @endif
-   
+
  </div>
 </div>
 </div>
@@ -307,7 +307,7 @@ offer-ride
     @else
     <input id="driving" name="idlicence" placeholder="driving licence number" type="text" class="form-control " >
     @endif
-    
+
   </div>
 </div>
 </div>
@@ -321,7 +321,7 @@ offer-ride
     </label>
     <div class="form-holder">
 
-      <input disabled id="email" value="gelany740@gmail.com" type="email" class="form-control">
+      <input disabled id="email" value="{{Auth::user()->email}}" type="email" class="form-control">
     </div>
   </div>
   <div class="form-group col-md-6">
