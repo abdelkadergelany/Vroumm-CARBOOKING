@@ -60,13 +60,7 @@ class LoginController extends Controller
      {
 
 
-        /*to send email
-        $data = array( "title" => "Welcome message from Vroumm","message" => "Hello Michele we are happy to welocme you on our system" );
-        Mail::to('michelendam@gmail.com')->send(new carBooking($data));
-
-        dd('stop');
-
-        */
+        
         /*to send sms*/
       // $user = new User();
       // $user->phone_number= '+85516393555';   

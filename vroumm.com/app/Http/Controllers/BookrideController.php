@@ -15,6 +15,7 @@ use App\Mail\carBooking;
 use App\Notifications\SMSNotification;
 use Illuminate\Notifications\Notifiable;
 use Flashy;
+use App\Notifications\validationNotiification;
 
 
 class BookrideController extends Controller
@@ -52,6 +53,17 @@ class BookrideController extends Controller
 
 
       	if($request->isMethod('post')){
+
+           //check if the passenger already booked for this ride
+
+          $booked = booking::where('userId',Auth::user()->id)->where('RideId',$request->input('rideId'))->first();
+             
+          if($booked!=null)
+          {
+               return redirect('booked-rides');
+
+          }
+
 
 
       		$validatedData = $request->validate([
@@ -100,9 +112,11 @@ class BookrideController extends Controller
 
              //sending email to the driver
           $data = array( "title" => " ","From" => $userRide->From,"To" => $userRide->To,"name"=>$useremail->name,"RideId"=> $userRide->id,"bookingId"=> $bookingId->id );
+        
 
-      		//updating the number of places available
-
+            //sending notification to the driver about the request
+      		$useremail->notify(new validationNotiification(['type'=>'request','rideId'=>$userRide->id,'bookingId'=>$bookingId->id]));
+             
 
           Mail::to($useremail->email)->send(new carBooking($data));
           
@@ -132,6 +146,16 @@ class BookrideController extends Controller
 
          $detail = ride::find($request->input('RideId'));
          $bookingdetail = booking::find($request->input('bookingId'));
+
+          //check if the redirection from email is comming from the Driver
+
+             if(Auth::user()->id != $detail->userId)
+             {
+             return redirect('home');
+
+             }
+         
+
          //return client to home page if the ride was already confirmed
          if($bookingdetail->isConfirmed==1)
          {
@@ -196,8 +220,13 @@ class BookrideController extends Controller
       $data = array( "From" => $ride->From,"To" => $ride->To,"name"=>$passenger->name,"rideDetails"=> $ride,"driverName"=> $driverName->name,
         "personalInfo"=>$personalInfo);
 
+             $passenger->notify(new validationNotiification(['type'=>'confirmation','rideId'=>$ride->id,'bookingId'=>$booking->id]));
+
             Mail::to($passenger->email)->send(new confirmationMail($data));
-            dd("success");
+
+
+          Flashy::primary(trans('request confirmed'), '');
+         return redirect('offered-rides');
 
 
 

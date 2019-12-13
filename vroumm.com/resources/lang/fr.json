@@ -177,7 +177,11 @@
     "Ride request canceled successfully":"démande de réservation annulée",
     "informations updated":"informations mises à jour",
     "Modify Your Car's information":"Modifier les informations de ma voiture",
-    "car updated":"voiture mise à jour"
+    "car updated":"voiture mise à jour",
+    "for the ride":"pour le trajet",
+    "No notification":"Pas de notification",
+    "Reservation's details":"Détails de la réservation",
+    "request confirmed":"demande confirmée"
 
 
 

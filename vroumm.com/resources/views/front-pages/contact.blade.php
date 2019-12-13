@@ -76,7 +76,7 @@ vroumm-contact
     <!-- Google Maps & Contact Info Area End -->
 
     <!-- Contact Form Area Start -->
-    <div class="roberto-contact-form-area section-padding-100">
+    <div class="roberto-contact-form-area section-padding-100"  style="background-color: grey">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -95,13 +95,13 @@ vroumm-contact
                         <form action="#" method="post">
                             <div class="row">
                                 <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
-                                    <input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">
+                                    <input required type="text" name="name" class="form-control mb-30" placeholder="{{ __('Name') }}">
                                 </div>
                                 <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
-                                    <input type="email" name="message-email" class="form-control mb-30" placeholder="Your Email">
+                                    <input required type="email" name="email" class="form-control mb-30" placeholder="{{ __('email') }}">
                                 </div>
                                 <div class="col-12 wow fadeInUp" data-wow-delay="100ms">
-                                    <textarea name="message" class="form-control mb-30" placeholder="Your Message"></textarea>
+                                    <textarea required name="message" class="form-control mb-30" placeholder="{{ __('message') }}"></textarea>
                                 </div>
                                 <div class="col-12 text-center wow fadeInUp" data-wow-delay="100ms">
                                     <button type="submit" class="btn roberto-btn mt-15">{{ __('Send Message') }}</button>

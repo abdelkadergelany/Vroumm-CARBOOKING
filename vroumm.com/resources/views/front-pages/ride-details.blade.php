@@ -37,16 +37,16 @@ transition: box-shadow 0.3s ease-in;">
   <div class="col-md-4">
     <span> {{ __('Driver') }} </span><br>
     <figure>
-      <img src="thumbnail/{{getProfilePict(Auth::user()->id)}}" class="rounded-circle" alt="Cinque Terre" width="150" height="150">
-      <figcaption>{{Auth::user()->name}}</figcaption>
+      <img src="thumbnail/{{getProfilePict($details->userId)}}" class="rounded-circle" alt="Cinque Terre" width="150" height="150">
+      <figcaption>{{getName($details->userId)}}</figcaption>
       <!-- <figcaption>Sexe: Male</figcaption> -->
     </figure>
   </div>
   <div class="col-md-4">
-    <h2 class="text-center text-primary">  {{ \Carbon\Carbon::parse($details->DepartureDate)->format('j F, Y') }}  &nbsp;     {{$details->DepartureTime}}</h2>
+    <h5 class="text-center text-primary">  {{ \Carbon\Carbon::parse($details->DepartureDate)->format('j F, Y') }}  &nbsp;     {{$details->DepartureTime}}</h5>
   </div>
   <div class="col-md-4"><br><br>
-    <h4 class="text-center text-danger">{{__('Price') }}: {{$details->price}} FCFA</h4>
+    <h5 class="text-center text-danger">{{__('Price') }}: {{$details->price}} FCFA</h5>
   </div>
 
 </div>

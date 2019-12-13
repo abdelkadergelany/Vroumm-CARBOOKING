@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-	       //flashy()->success('You have been logged out.', 'http://your-awesome-link.com');
-	      // Flashy::primary('Welcome Aboard!', 'http://your-awesome-link.com');
 
-    return view('home');
+Route::get('/', function () {
+	     
+  	return view('home');
+
 });
 
 
@@ -50,6 +50,8 @@ Route::match(['get','post'],'/photo', 'DashboardController@photo')->name('photo'
 Route::match(['get','post'],'/mycar', 'DashboardController@mycar')->name('mycar');
 Route::get('/offered-rides', 'DashboardController@offered_rides')->name('offered-rides');
 Route::get('/booked-rides', 'DashboardController@booked_rides')->name('booked-rides');
+Route::get('/notifications', 'DashboardController@notifications')->name('notifications');
+Route::get('/see_details', 'DashboardController@see_details')->name('see_details');
 
 
 

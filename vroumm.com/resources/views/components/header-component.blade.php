@@ -1,7 +1,7 @@
   <!-- Preloader -->
-  <div id="preloader">
+ <!--  <div id="preloader">
     <div class="loader"></div>
-</div>
+</div> -->
 <!-- /Preloader -->
 
 <!-- Header Area Start -->
@@ -43,7 +43,16 @@
                                 @auth
 
                                 <div class="btn-group ">
-                                    <button style="background-color: #0e2737" type="button" class="btn btn-lg "><span style="color: white">{{ Auth::user()->name }}</span></button>
+                                    <button style="background-color: #0e2737" type="button" class="btn btn-lg "><span style="color: white">
+
+                                      @if(Auth::user()->unreadNotifications->groupBy('notifiable_type')->count()!=0)
+                                      <a href="{{ route('notifications') }}"><i  class="fa fa-bell text-primary" aria-hidden="true">
+
+                                        <sup class="text-danger">{{Auth::user()->unreadNotifications->groupBy('notifiable_type')->count()}}
+                                        </sup></i></a>
+                                      @endif
+
+                                        {{ Auth::user()->name }}</span></button>
                                     <button style="background-color: #17a2b8;" type="button" class="btn   dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>

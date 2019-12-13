@@ -76,6 +76,9 @@
             <li class="@yield('bookedride')">
                 <a href="{{ route('booked-rides') }}">{{ __('Booked Rides') }}</a>
             </li>
+              <li class="@yield('notification')">
+                <a href="{{ route('notifications') }}">{{ __('Notifications') }}</a>
+            </li>
         </ul>
 
         <ul class="list-unstyled CTAs">

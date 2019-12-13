@@ -58,7 +58,7 @@ find-rides
              <div  class="col-xs-12">
                <span> {{ __('Driver') }}  </span><br>
                <figure>
-                <img src="thumbnail/{{getProfilePict(Auth::user()->id)}}" class="rounded-circle" alt="Cinque Terre" width="70" height="70">
+                <img src="thumbnail/{{getProfilePict($ride->userId)}}" class="rounded-circle" alt="Cinque Terre" width="70" height="70">
                 <figcaption class="text-capitalize"> {{getName($ride->userId)}}</figcaption>
               </figure>
             </div>
