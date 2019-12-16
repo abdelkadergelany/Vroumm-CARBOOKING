@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {  
-
+          
         return view('home');
     }
 
@@ -41,7 +41,7 @@ class HomeController extends Controller
            $data=$request->input();
             App::setLocale($data['lang']);
           
-         return view('home');
+         return redirect('home');
          //return back();
  
     }
@@ -59,6 +59,7 @@ class HomeController extends Controller
             {
                  $ride = ride::where('From','like',$request->input('From'))
                               ->where('To','like',$request->input('To'))
+                              ->where('isBlocked','0')
                               ->orderBy("created_at","DESC")
                               ->paginate(8);
 
@@ -73,7 +74,7 @@ class HomeController extends Controller
                 elseif ($request->input('From')==null && $request->input('To')==null)
 
             {
-                 $ride = ride::where('From','!=',null)
+                 $ride = ride::where('isBlocked','0')
                               ->orderBy("created_at","DESC")
                               ->paginate(8);
 
@@ -103,6 +104,7 @@ class HomeController extends Controller
                        $ride = ride::where('From','like',$request->input('From'))
                               ->where('To','like',$request->input('To'))
                               ->where('DepartureDate','=',$request->input('departureDate'))
+                              ->where('isBlocked','0')
                               ->orderBy("created_at","DESC")
                               ->paginate(8);
                                return view('front-pages.find-ride')->with('rides',$ride);
@@ -114,6 +116,7 @@ class HomeController extends Controller
 
                        $ride = ride::where('From','like',$request->input('From'))
                               ->where('To','like',$request->input('To'))
+                              ->where('isBlocked','0')
                               ->orderBy("created_at","DESC")
                               ->paginate(8);
                                return view('front-pages.find-ride')->with('rides',$ride);

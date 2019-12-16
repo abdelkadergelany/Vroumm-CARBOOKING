@@ -10,7 +10,7 @@
                             <a href="#" class="footer-logo"><img src="img/logo3.png" alt="vroumm logo"></a>
 
                             <h4>+237 6 614 48 46</h4>
-                            <span>vroumm@gmail.com</span>
+                            <span>vroummcarbooking@gmail.com</span>
                             <span>Yaounde bastos POBOX 814</span>
                         </div>
                     </div>

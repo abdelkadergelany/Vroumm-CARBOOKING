@@ -59,7 +59,7 @@ vroumm-contact
                         <div class="single-contact-info">
                             <i class="fa fa-envelope-o" aria-hidden="true"></i>
                             <h4>Email</h4>
-                            <p>Isdsss@gmail.com</p>
+                            <p>vroummcarbooking@gmail.com</p>
                         </div>
                     </div>
                 </div>

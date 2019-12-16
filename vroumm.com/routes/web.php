@@ -12,6 +12,8 @@
 */
 
 
+
+
 Route::get('/', function () {
 	     
   	return view('home');
@@ -60,7 +62,6 @@ Route::get('/see_details', 'DashboardController@see_details')->name('see_details
 
 
 
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes(['verify'=>true]);
@@ -71,3 +72,8 @@ Auth::routes(['verify'=>true]);
 Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

@@ -22,12 +22,12 @@
             <div class="row">
 
                 <div class="col-4">
-                    <div class="top-header-content">
+                     <div class="top-header-content">
                         <a href="#"><i class="icon_phone"></i> <span> 661 14 48 46 </span></a>
-                        <a href="mailto:vroumm@gmail.com.com?Subject=Vroumm%Visitor" target="_blank">
-                            <i class="icon_mail"></i> <span>vroumm@gmail.com</span></a>
-                        </div>
-                    </div>
+                        <a href="mailto:vroummcarbooking@gmail.com?Subject=Vroumm%Visitor" target="_blank">
+                            <i class="icon_mail"></i> <span>vroummcarbooking@gmail.com</span></a>
+                     </div>
+               </div>
 
                     <div class="col-8">
 

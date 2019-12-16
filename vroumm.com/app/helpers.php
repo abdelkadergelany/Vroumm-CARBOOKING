@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\booking;
 use App\city;
+use App\Testimonial;
 
 
 if(!function_exists('getFrom')){
@@ -34,6 +35,16 @@ if(!function_exists('getProfilePict')){
 
 }
 
+
+if(!function_exists('getTestimonial')){
+
+  function getTestimonial()
+  {
+  $testimonial = Testimonial::All();
+   return $testimonial;
+ }
+
+}
 
 
 
