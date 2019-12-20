@@ -1,8 +1,8 @@
 <br> <br> <br>
     <section class="roberto-cta-area">
         <div class="container">
-            <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url(img/1.jpg);">
-                <div class="row align-items-center">
+            <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url({{asset("img/1.jpg")}});">
+                <div class="row align-items-center">          
                     <div class="col-12 col-md-7">
                         <div class="cta-text mb-50">
                             <h2> {{ __('Contact us now!') }}</h2>

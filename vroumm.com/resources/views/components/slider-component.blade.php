@@ -1,7 +1,7 @@
 <section class="welcome-area">
     <div class="welcome-slides owl-carousel">
      
-        <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/axe-douala.png);" data-img-url="img/axe-douala.png">
+        <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{asset("img/axe-douala.png")}});" data-img-url="img/axe-douala.png">                           
             <!-- Welcome Content -->
             <div class="welcome-content h-100">
                 <div class="container h-100">
@@ -11,7 +11,7 @@
                             <div class="welcome-text text-center">
                                 <h6 data-animation="fadeInLeft" data-delay="250ms">{{ __('for inter urban transport in Cameroon') }} </h6>
                                 <h2 data-animation="fadeInLeft" data-delay="500ms">{{ __('WELCOME TO VROUMM SERVICES') }}</h2>
-                                <a href="#" class="btn roberto-btn btn-2" data-animation="fadeInLeft" data-delay="800ms">{{ __('FIND A RIDE NOW') }}</a>
+                                <a href="{{ route('home') }}" class="btn roberto-btn btn-2" data-animation="fadeInLeft" data-delay="800ms">{{ __('FIND A RIDE NOW') }}</a>
                             </div>
                         </div>
                     </div>
@@ -20,8 +20,8 @@
         </div>
 
         <!-- Single Welcome Slide -->
-        <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/yaounde.jpg);" data-img-url="img/yaounde.jpg">
-            <!-- Welcome Content -->
+        <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{asset("img/yaounde.jpg")}});" data-img-url="img/yaounde.jpg">
+            <!-- Welcome Content -->          
             <div class="welcome-content h-100">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
@@ -39,8 +39,8 @@
             </div>
         </div>
 
-        <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/driver.jpg);" data-img-url="img/driver.jpg">
-            
+        <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{asset("img/driver.jpg")}});" data-img-url="img/driver.jpg">
+                                                 
             <div class="welcome-content h-100">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">

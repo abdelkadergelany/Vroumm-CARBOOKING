@@ -1,7 +1,7 @@
-  <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/biglog2.png);">
+  <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({{asset("img/biglog2.png")}});">
         <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
+            <div class="row h-100 align-items-center">                   
+                <div class="col-12"> 
                     <div class="breadcrumb-content text-center">
                         <h2 class="page-title">{{ $current_page }}</h2>
                         <nav aria-label="breadcrumb">

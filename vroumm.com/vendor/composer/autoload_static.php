@@ -44,6 +44,10 @@ class ComposerStaticInit60e01bca1a010f3484df80a1c508f8d3
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'i' => 
+        array (
+            'ied3vil\\' => 8,
+        ),
         'Z' => 
         array (
             'Zend\\Diactoros\\' => 15,
@@ -203,6 +207,10 @@ class ComposerStaticInit60e01bca1a010f3484df80a1c508f8d3
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'ied3vil\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ied3vil/language-switcher/src/ied3vil',
         ),
         'Zend\\Diactoros\\' => 
         array (
@@ -610,6 +618,7 @@ class ComposerStaticInit60e01bca1a010f3484df80a1c508f8d3
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Feedback' => __DIR__ . '/../..' . '/app/Feedback.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -633,16 +642,21 @@ class ComposerStaticInit60e01bca1a010f3484df80a1c508f8d3
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Mail\\carBooking' => __DIR__ . '/../..' . '/app/Mail/carBooking.php',
         'App\\Mail\\confirmationMail' => __DIR__ . '/../..' . '/app/Mail/confirmationMail.php',
+        'App\\Notification' => __DIR__ . '/../..' . '/app/Notification.php',
         'App\\Notifications\\SMSNotification' => __DIR__ . '/../..' . '/app/Notifications/SMSNotification.php',
         'App\\Notifications\\validationNotiification' => __DIR__ . '/../..' . '/app/Notifications/validationNotiification.php',
+        'App\\Permission' => __DIR__ . '/../..' . '/app/Permission.php',
+        'App\\Post' => __DIR__ . '/../..' . '/app/Post.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\SocialProvider' => __DIR__ . '/../..' . '/app/SocialProvider.php',
+        'App\\Testimonial' => __DIR__ . '/../..' . '/app/Testimonial.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\UserInfo' => __DIR__ . '/../..' . '/app/UserInfo.php',
+        'App\\UserRole' => __DIR__ . '/../..' . '/app/UserRole.php',
         'App\\booking' => __DIR__ . '/../..' . '/app/booking.php',
         'App\\car' => __DIR__ . '/../..' . '/app/car.php',
         'App\\city' => __DIR__ . '/../..' . '/app/city.php',
@@ -5710,6 +5724,7 @@ class ComposerStaticInit60e01bca1a010f3484df80a1c508f8d3
         'TCG\\Voyager\\Widgets\\BaseDimmer' => __DIR__ . '/..' . '/tcg/voyager/src/Widgets/BaseDimmer.php',
         'TCG\\Voyager\\Widgets\\PageDimmer' => __DIR__ . '/..' . '/tcg/voyager/src/Widgets/PageDimmer.php',
         'TCG\\Voyager\\Widgets\\PostDimmer' => __DIR__ . '/..' . '/tcg/voyager/src/Widgets/PostDimmer.php',
+        'TCG\\Voyager\\Widgets\\RideDimmer' => __DIR__ . '/..' . '/tcg/voyager/src/Widgets/RideDimmer.php',
         'TCG\\Voyager\\Widgets\\UserDimmer' => __DIR__ . '/..' . '/tcg/voyager/src/Widgets/UserDimmer.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
@@ -5796,6 +5811,11 @@ class ComposerStaticInit60e01bca1a010f3484df80a1c508f8d3
         'Zend\\Diactoros\\UploadedFileFactory' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/UploadedFileFactory.php',
         'Zend\\Diactoros\\Uri' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/Uri.php',
         'Zend\\Diactoros\\UriFactory' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/UriFactory.php',
+        'ied3vil\\LanguageSwitcher\\Facades\\LanguageSwitcher' => __DIR__ . '/..' . '/ied3vil/language-switcher/src/ied3vil/LanguageSwitcher/Facades/LanguageSwitcher.php',
+        'ied3vil\\LanguageSwitcher\\LanguageSwitcher' => __DIR__ . '/..' . '/ied3vil/language-switcher/src/ied3vil/LanguageSwitcher/LanguageSwitcher.php',
+        'ied3vil\\LanguageSwitcher\\LanguageSwitcherController' => __DIR__ . '/..' . '/ied3vil/language-switcher/src/ied3vil/LanguageSwitcher/LanguageSwitcherController.php',
+        'ied3vil\\LanguageSwitcher\\Middleware\\LanguageSwitcherMiddleware' => __DIR__ . '/..' . '/ied3vil/language-switcher/src/ied3vil/LanguageSwitcher/Middleware/LanguageSwitcherMiddleware.php',
+        'ied3vil\\LanguageSwitcher\\Providers\\LanguageSwitcherProvider' => __DIR__ . '/..' . '/ied3vil/language-switcher/src/ied3vil/LanguageSwitcher/Providers/LanguageSwitcherProvider.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

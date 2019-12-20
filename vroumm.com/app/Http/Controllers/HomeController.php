@@ -8,6 +8,8 @@ use App\ride;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Flashy;
+use Mail;
+use App\Mail\Feedback;
 
 
 
@@ -33,26 +35,45 @@ class HomeController extends Controller
           
         return view('home');
     }
+     
 
 
-    public function ChangeLanguage(Request $request)
-    {   
-      
-           $data=$request->input();
-            App::setLocale($data['lang']);
-          
-         return redirect('home');
-         //return back();
- 
+     public function contact(Request $request)
+    {  
+           if($request->isMethod('get')){
+             return view('front-pages.contact');
+
+           }
+
+
+           if($request->isMethod('post')){
+
+            $title = "From ".$request->input('name')." (". $request->input('email').") " ;
+             
+                 $data = array( "title" => $title,"message" => $request->input('message'));
+        
+             
+
+          Mail::to('vroummcarbooking@gmail.com')
+          ->send(new Feedback($data));
+
+           Flashy::primary(trans('your message was sent.'), '');
+
+            return view('front-pages.contact');
+
+
+           }
+        
     }
+
 
 
 
       public function find_ride(Request $request)
     {       
 
-
-           if($request->isMethod('get')){
+            
+           if($request->isMethod('get')){ 
 
             if ($request->input('From')!=null && $request->input('To')!=null)
 

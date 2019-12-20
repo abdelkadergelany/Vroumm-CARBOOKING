@@ -9,8 +9,8 @@
                             
 
                       @foreach($testimonial=getTestimonial() as $testim)
-  
-                     <img src="storage/testimonial_photos/{{$testim->photo_name}}" alt="Testimonial picture">
+ 
+                     <img src={{asset("storage/testimonial_photos/$testim->photo_name")}} alt="Testimonial picture">
                  
                      @endforeach
 

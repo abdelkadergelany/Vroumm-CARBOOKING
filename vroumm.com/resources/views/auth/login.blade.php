@@ -37,7 +37,7 @@ vroumm-Login
 <br><br><hr>
 
 <div class="container">
-    <div class=" cta-content bg-img bg-overlay jarallax" style="background-image: url(img/1.jpg);">
+    <div class=" cta-content bg-img bg-overlay jarallax" style="background-image: url({{asset("img/1.jpg")}});">
       <div class="container">
         <div class="row">
           <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">

@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         'Intervention\Image\ImageServiceProvider',
+        ied3vil\LanguageSwitcher\Providers\LanguageSwitcherProvider::class,
 
     ],
 

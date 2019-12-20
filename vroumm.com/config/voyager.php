@@ -149,7 +149,7 @@ return [
         ],
 
         'widgets' => [
-             'TCG\\Voyager\\widgets\\userDimmer',
+             'TCG\\Voyager\\widgets\\UserDimmer',
            
         ],
 

@@ -32,6 +32,11 @@ vroumm-home
         </div>
     </div>
 
+
+<br><br><br><br><br><br>
+    @component('components.ride-slider-component')
+@endcomponent
+
     <div class="container mt-100">
         <div class="row align-items-center">
             <div class="col-12 col-lg-6">
@@ -52,23 +57,23 @@ vroumm-home
                         <div class="col-6">
                             <div class="single-thumb" >
                                 <div class="text-on-img  " ><h3 class="text-white"><b>Yaounde</b></h3></div>
-                                <img src="img/yaounde.png" alt="">
-
+                                <img src={{asset("img/yaounde.png")}} alt="">
+                                  
                             </div>
                             <div class="single-thumb">
                                 <div class="text-on-img " ><h3 class="text-white"><b>Douala</b></h3></div>
-                                <img src="img/douala.png" alt="">
-                            </div>
+                                <img src={{asset("img/douala.png")}} alt="">
+                            </div>  
                         </div>
                         <div class="col-6">
                             <div class="single-thumb">
                                 <div class="text-on-img " ><h3 class="text-white"><b>Buea</b></h3></div>
-                                <img src="img/buea.png" alt="">
-                            </div>
+                                <img src={{asset("img/buea.png")}} alt="">
+                            </div> 
                             <div class="single-thumb">
                                 <div class="text-on-img " ><h3 class="text-white"><b>Maroua</b></h3></div>
-                                <img src="img/bamenda.png" alt="">
-                            </div>
+                                <img src={{asset("img/bamenda.png")}} alt="">
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -90,22 +95,22 @@ vroumm-home
                     <div class="col-6">
                         <div class="single-thumb" >
                             <div class="text-on-img  " ><h3 class="text-white"><b>Bamenda</b></h3></div>
-                            <img src="img/bamenda2.png" alt="">
-
+                            <img src={{asset("img/bamenda2.png")}} alt="">
+                               
                         </div>
                         <div class="single-thumb">
                             <div class="text-on-img " ><h3 class="text-white"><b>Garoua</b></h3></div>
-                            <img src="img/north.png" alt="">
-                        </div>
+                            <img src={{asset("img/north.png")}} alt="">
+                        </div> 
                     </div>
                     <div class="col-6">
                         <div class="single-thumb">
                             <div class="text-on-img " ><h3 class="text-white"><b>Ebolowa</b></h3></div>
-                            <img src="img/ebo.png" alt="">
+                            <img src={{asset("img/ebo.png")}} alt="">
                         </div>
                         <div class="single-thumb">
                             <div class="text-on-img " ><h3 class="text-white"><b>Bertoua</b></h3></div>
-                            <img src="img/bert.png" alt="">
+                            <img src={{asset("img/bert.png")}} alt="">
                         </div>
                     </div>
 
@@ -138,8 +143,7 @@ vroumm-home
 
 <br>
 
-@component('components.ride-slider-component')
-@endcomponent
+
 
 
 

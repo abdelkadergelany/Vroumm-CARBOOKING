@@ -157,7 +157,7 @@
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 <div align="center" class="img-container center autowidth" style="padding-right: 0px;padding-left: 0px;">
-<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://localhost:8000/" tabindex="-1" target="_blank"> <img align="center" alt="Image" border="0" class="center autowidth" src="https://i.ibb.co/6B4j37z/IMG-20191124-WA0021.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 600px; display: block;" title="Image" width="600"/></a>
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><!-- <a href="http://localhost:8000/" tabindex="-1" target="_blank"> <img align="center" alt="Image" border="0" class="center autowidth" src="https://i.ibb.co/6B4j37z/IMG-20191124-WA0021.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 600px; display: block;" title="Image" width="600"/></a> -->
 <!--[if mso]></td></tr></table><![endif]-->
 </div>
 <!--[if (!mso)&(!IE)]><!-->

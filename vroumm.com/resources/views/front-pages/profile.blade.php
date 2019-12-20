@@ -214,7 +214,7 @@ text-success
                                 {{__('Whatssap number') }}
                             </label>
                             <div class="form-group">
-                                @if($userInfos->phoene2!=null)
+                                @if($userInfos->phone2!=null)
                                 <input value="{{ $userInfos->phone2 }}" placeholder="eg: 698261547" pattern="[0-9]{9}" id="phone2" name="phone2"   type="tel" class="form-control " >
                                 @else
                                 <input  placeholder="eg: 698261547" pattern="[0-9]{9}" id="phone" name="phone2"   type="tel" class="form-control " >

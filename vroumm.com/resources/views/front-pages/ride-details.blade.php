@@ -109,7 +109,7 @@ transition: box-shadow 0.3s ease-in;">
     @csrf
     <div class="row p-3" style="background-color: #999999">
      @if($details->NumberOfPlaces != $details->passenger )
-     <label class="col-md-2">combien de place?</label>
+     <label class="col-md-2">{{__('number of places to book') }}</label>
      <div class="form-group col-md-4">
 
        <input placeholder="{{__('number of places to book') }}" type="Number" min="1"   max="{{$details->NumberOfPlaces-$details->passenger}}"  class="form-control" name="passenger" required>

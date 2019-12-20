@@ -1,4 +1,3 @@
-
 <?php
 use App\UserInfo;
 use App\ride;
@@ -8,6 +7,7 @@ use App\User;
 use App\booking;
 use App\city;
 use App\Testimonial;
+use App\Page;
 
 
 if(!function_exists('getFrom')){
@@ -17,6 +17,31 @@ if(!function_exists('getFrom')){
   $rides = ride::find($id);
   
    return $rides->From;
+ }
+
+}
+
+
+if(!function_exists('getFaqs')){
+
+  function getFaqs()
+  {
+  $page = Page::find(2);
+ // dd($page);
+   return $page->body;
+ }
+
+}
+
+
+
+if(!function_exists('get_termAndConditions')){
+
+  function get_termAndConditions()
+  {
+  $page = Page::find(1);
+  
+   return $page->body;
  }
 
 }

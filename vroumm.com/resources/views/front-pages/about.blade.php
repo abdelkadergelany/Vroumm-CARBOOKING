@@ -31,7 +31,7 @@ vroumm-About
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="about-thumbnail pr-lg-5 mb-50 wow fadeInUp" data-wow-delay="100ms">
-                    <img src="img/biglog1.png" alt="">
+                    <img src={{asset("img/biglog1.png")}} alt="">
                 </div>
             </div>
             <div class="col-md-6">
@@ -66,7 +66,7 @@ vroumm-About
 
             <div class="col-md-6">
                 <div class="about-thumbnail pr-lg-5 mb-50 wow fadeInUp" data-wow-delay="100ms">
-                    <img src="img/cmr.png" alt="">
+                    <img src={{asset("img/cmr.png")}} alt="">   
                 </div>
             </div>
         </div>
@@ -76,8 +76,8 @@ vroumm-About
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="about-thumbnail pr-lg-5 mb-50 wow fadeInUp" data-wow-delay="100ms">
-                    <img src="img/biglog1.png" alt="">
-                </div>
+                    <img src={{asset("img/biglog1.png")}} alt="">
+                </div> 
             </div>
             <div class="col-md-6">
                 <!-- Section Heading -->
@@ -113,8 +113,8 @@ vroumm-About
 
             <div class="col-md-6">
                 <div class="about-thumbnail pr-lg-5 mb-100 wow fadeInUp" data-wow-delay="100ms">
-                    <img src="img/driver2.png" alt="">
-                </div>
+                    <img src={{asset("img/caravatar.png")}} alt="">
+                </div>    
             </div>
         </div>
     </div>

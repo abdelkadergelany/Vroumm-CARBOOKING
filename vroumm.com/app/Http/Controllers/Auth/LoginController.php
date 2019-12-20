@@ -89,7 +89,7 @@ class LoginController extends Controller
             //dd($dated);
         $user = User::firstOrCreate(
             ['email' => $userProvided->getEmail()],
-            ['name' => $userProvided->getName()],
+            ['name' => $userProvided->getName()]
 
         );
         SocialProvider::create(
@@ -101,7 +101,7 @@ class LoginController extends Controller
         $userVerification->save();
 
         UserInfo::create(
-            ['profilepict' => $userProvided->getAvatar(), 'userId' => $user->id]
+            ['profilepict' => 'question.png', 'userId' => $user->id]
         );
     }
 

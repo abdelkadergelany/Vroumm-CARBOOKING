@@ -92,16 +92,16 @@ vroumm-contact
                 <div class="col-12">
                     <!-- Form -->
                     <div class="roberto-contact-form">
-                        <form action="#" method="post">
-                            <div class="row">
+                        <form action="{{route('contact')}}" method="post">@csrf
+                            <div class="row" >
                                 <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
-                                    <input required type="text" name="name" class="form-control mb-30" placeholder="{{ __('Name') }}">
+                                    <input style="color: black;" required type="text" name="name" class=" form-control mb-30" placeholder="{{ __('Name') }}">
                                 </div>
                                 <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
-                                    <input required type="email" name="email" class="form-control mb-30" placeholder="{{ __('email') }}">
+                                    <input style="color: black;" required type="email" name="email" class="form-control mb-30" placeholder="{{ __('email') }}">
                                 </div>
                                 <div class="col-12 wow fadeInUp" data-wow-delay="100ms">
-                                    <textarea required name="message" class="form-control mb-30" placeholder="{{ __('message') }}"></textarea>
+                                    <textarea style="color: black;"  required name="message" class="form-control mb-30 " placeholder="{{ __('message') }}"></textarea>
                                 </div>
                                 <div class="col-12 text-center wow fadeInUp" data-wow-delay="100ms">
                                     <button type="submit" class="btn roberto-btn mt-15">{{ __('Send Message') }}</button>
@@ -131,6 +131,14 @@ paralax.jpg
 
 @endcomponent
 
+
+
+@endsection
+
+
+@section('morescript')
+
+@include('flashy::message')
 
 
 @endsection

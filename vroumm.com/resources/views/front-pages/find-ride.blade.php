@@ -55,13 +55,18 @@ find-rides
 
 
            <div class="row ">
-             <div  class="col-xs-12">
+             <div  class="col-xs-4">
                <span> {{ __('Driver') }}  </span><br>
                <figure>
                 <img src="thumbnail/{{getProfilePict($ride->userId)}}" class="rounded-circle" alt="Cinque Terre" width="70" height="70">
                 <figcaption class="text-capitalize"> {{getName($ride->userId)}}</figcaption>
               </figure>
-            </div>
+              </div>
+              <div  class="col-xs-4 m-auto"> </div>
+               <div  class="col-xs-4">
+                <span class="text-right font-weight-bold" style="color: #17a2b8;"> {{$ride->price}} FCFA</span>
+               </div>
+            
           </div>
           <div class="row">
             <div class="col-xs-4">

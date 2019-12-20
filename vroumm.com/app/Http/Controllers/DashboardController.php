@@ -261,7 +261,7 @@ public function mycar(Request $request)
 
          'immat' => ['required','regex:/^[a-zA-Z0-9\s]+$/', 'max:12'],
          'color' => ['required', 'regex:/^[a-zA-Z\s]+$/', 'max:50'],
-         'carmodel' => ['required','regex:/^[a-zA-Z0-9-\s]+$/','max:50'],
+         'carmodel' => ['required','regex:/^[a-zA-Z0-9\-\s]+$/','max:50'],
      ]);
 
       $car = car::where('userId',Auth::user()->id)->first();
@@ -356,7 +356,7 @@ public function offer_ride(Request $request)
          'hour' => ['required'],
          'departure' => ['required'],
          'fname' =>['required', 'regex:/^[a-zA-Z\s]+$/', 'max:100'],
-         'carmodel' => ['required','regex:/^[a-zA-Z0-9\s]+$/','max:100'],
+         'carmodel' => ['required','regex:/^[a-zA-Z0-9\-\s]+$/','max:100'],
      ]);
 
 
