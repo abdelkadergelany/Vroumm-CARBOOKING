@@ -14,7 +14,7 @@ vroumm-page-not-found
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="text-center text-danger">{{ __('Error code 503. Sorry service Unavailable, please contact the admin gelany740@gmail.com and report this error') }}</h3>
+			<h3 class="text-center text-danger">{{ __('Error code 503. Sorry service Unavailable, please contact the admin')}}<a href="mailto:gelany740@gmail.com?Subject=Error503" target="_top"> gelany740@gmail.com</a>  {{__('and report this error') }}</h3>
 			
 		</div>
 		

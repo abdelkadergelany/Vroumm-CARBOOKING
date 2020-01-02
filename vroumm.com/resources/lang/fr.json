@@ -182,7 +182,10 @@
     "No notification":"Pas de notification",
     "Reservation's details":"Détails de la réservation",
     "request confirmed":"demande confirmée",
-    "your message was sent":"Votre message a été envoyé"
+    "your message was sent":"Votre message a été envoyé",
+    "Error code 503. Sorry service Unavailable, please contact the admin":"Code d'erreur 503. désolé Service  non disponible, veuillez contacter l'administrateur",
+    "and report this error":"et signaler cette erreur"
+
 
 
 

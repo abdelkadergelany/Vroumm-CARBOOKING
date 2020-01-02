@@ -245,7 +245,7 @@ vroumm-contact
 </div>
 <div class="col-md-4">
   <label for="DOB">
-    {{ __(' Date Of Birth') }}
+    {{ __('Date Of Birth') }}
   </label>
   <div class="form-group">
 
@@ -264,7 +264,7 @@ vroumm-contact
 
 <div class="col-md-4">
   <label for="pob">
-    {{ __(' Place Of Birth') }}
+    {{ __('Place Of Birth') }}
   </label>
   <div class="form-group">
 

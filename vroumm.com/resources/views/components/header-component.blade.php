@@ -55,8 +55,8 @@
                                     </sup></i></a>
                                     @endif
 
-                                    {{ Auth::user()->name }}</span></button>
-                                    <button style="background-color: #17a2b8;" type="button" class="btn   dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span>{{Str::words(Auth::user()->name, 1, '')}}</span></span></button>
+                                    <button style="background-color: #17a2b8; border-radius: 15px;" type="button" class="btn   dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu">

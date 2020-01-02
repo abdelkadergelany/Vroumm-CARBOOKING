@@ -76,8 +76,11 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function handleProviderCallback($provider)
-    {  // dd("aly");
-    $userProvided = Socialite::driver($provider)->user();
+    { 
+
+        try{
+
+              $userProvided = Socialite::driver($provider)->user();
     $socialUser = SocialProvider::where('socialId',$userProvided->getId())->first();
     $user = null; 
         //check if we have logged provider
@@ -110,6 +113,15 @@ class LoginController extends Controller
 
     Auth::login($user);
     return redirect('/home');
+
+
+        }catch(\Exception $e){
+
+
+         return redirect('home');
+
+        }
+  
 
 
 
